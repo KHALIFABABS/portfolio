@@ -1,4 +1,4 @@
-const CACHE_NAME = 'ks-portfolio-v5';
+const CACHE_NAME = 'ks-portfolio-v7';
 const urlsToCache = [
     '/',
     '/index.html',
@@ -8,6 +8,7 @@ const urlsToCache = [
     '/contact.html',
     '/privacy.html',
     '/style.css',
+    '/mobile-premium.css?v=2',
     '/script.js',
     '/language.js?v=4'
 ];

@@ -433,13 +433,25 @@ function initNavigation() {
         menuBtn.addEventListener('click', () => {
             const isExpanded = menuBtn.getAttribute('aria-expanded') === 'true';
             mobileMenu.classList.toggle('hidden');
-            menuBtn.setAttribute('aria-expanded', !isExpanded);
+            menuBtn.setAttribute('aria-expanded', String(!isExpanded));
             
             const icon = menuBtn.querySelector('i');
             if (icon) {
                 icon.classList.toggle('fa-bars');
                 icon.classList.toggle('fa-times');
             }
+        });
+
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuBtn.setAttribute('aria-expanded', 'false');
+                const icon = menuBtn.querySelector('i');
+                if (icon) {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
         });
     }
     

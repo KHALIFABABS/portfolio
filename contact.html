@@ -375,6 +375,8 @@
             }
         }
     </style>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="mobile-premium.css?v=2">
 </head>
 <body class="bg-gray-900 text-white">
 
@@ -899,10 +901,26 @@ function initNavigation() {
     // Mobile menu
     if (menuBtn && mobileMenu) {
         menuBtn.addEventListener('click', () => {
+            const isExpanded = menuBtn.getAttribute('aria-expanded') === 'true';
             mobileMenu.classList.toggle('hidden');
+            menuBtn.setAttribute('aria-expanded', String(!isExpanded));
             const icon = menuBtn.querySelector('i');
-            icon.classList.toggle('fa-bars');
-            icon.classList.toggle('fa-times');
+            if (icon) {
+                icon.classList.toggle('fa-bars');
+                icon.classList.toggle('fa-times');
+            }
+        });
+
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuBtn.setAttribute('aria-expanded', 'false');
+                const icon = menuBtn.querySelector('i');
+                if (icon) {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
         });
     }
     
@@ -910,6 +928,7 @@ function initNavigation() {
     window.addEventListener('resize', () => {
         if (window.innerWidth > 768 && mobileMenu) {
             mobileMenu.classList.add('hidden');
+            menuBtn?.setAttribute('aria-expanded', 'false');
             const icon = menuBtn?.querySelector('i');
             if (icon) {
                 icon.classList.remove('fa-times');
