@@ -1,0 +1,1263 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Ababacar Souleymane Sane | Ingénieur Logiciel</title>
+    <meta name="description" content="Contactez Ababacar Souleymane Sane pour vos projets de développement web, collaborations ou opportunités professionnelles.">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://khalifasane.dev/contact">
+    <meta property="og:title" content="Contacter Ababacar Souleymane Sane">
+    <meta property="og:description" content="Discutons de votre projet !">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+
+    
+    <style>
+        /* Styles généraux */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Curseur personnalisé */
+        .custom-cursor {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #10b981;
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 99999;
+            transform: translate(-50%, -50%);
+            transition: width 0.3s, height 0.3s, background 0.3s;
+            mix-blend-mode: difference;
+        }
+
+        .custom-cursor-follower {
+            width: 40px;
+            height: 40px;
+            background: rgba(16, 185, 129, 0.1);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 99998;
+            transform: translate(-50%, -50%);
+            transition: all 0.4s ease;
+            backdrop-filter: blur(2px);
+        }
+
+        .custom-cursor.hover {
+            width: 40px;
+            height: 40px;
+            background: rgba(16, 185, 129, 0.2);
+            border-color: #34d399;
+        }
+
+        .custom-cursor-follower.hover {
+            width: 60px;
+            height: 60px;
+            background: rgba(16, 185, 129, 0.2);
+        }
+
+        /* Navigation */
+        #navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 9999;
+            background: rgba(17, 24, 39, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        #navbar.scrolled {
+            background: rgba(17, 24, 39, 0.95);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+        }
+
+        .nav-link {
+            position: relative;
+            color: #d1d5db;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: #ffffff;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(to right, #3b82f6, #8b5cf6);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        /* Mobile menu */
+        .mobile-menu {
+            background: rgba(17, 24, 39, 0.98);
+            backdrop-filter: blur(10px);
+            border-radius: 0 0 1rem 1rem;
+            padding: 1rem;
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Particles */
+        #particles-js {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Main content */
+        main {
+            position: relative;
+            z-index: 10;
+            padding-top: 80px;
+        }
+
+        /* Glassmorphism */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px -15px rgba(16, 185, 129, 0.3);
+            border-color: rgba(16, 185, 129, 0.3);
+        }
+
+        /* Formulaire */
+        .form-group {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background: rgba(31, 41, 55, 0.5);
+            border: 1px solid #374151;
+            border-radius: 0.5rem;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #10b981;
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+            background: rgba(31, 41, 55, 0.8);
+        }
+
+        .form-group label {
+            position: absolute;
+            left: 1rem;
+            top: 0.75rem;
+            color: #9ca3af;
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+
+        .form-group.focused label,
+        .form-group input:focus ~ label,
+        .form-group select:focus ~ label,
+        .form-group textarea:focus ~ label,
+        .form-group input:not(:placeholder-shown) ~ label,
+        .form-group textarea:not(:placeholder-shown) ~ label {
+            top: -0.6rem;
+            left: 0.75rem;
+            font-size: 0.75rem;
+            background: #111827;
+            padding: 0 0.25rem;
+            color: #10b981;
+        }
+
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .animate-pulse {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            cursor: pointer;
+        }
+
+        .mouse {
+            width: 30px;
+            height: 50px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 15px;
+            position: relative;
+        }
+
+        .wheel {
+            width: 4px;
+            height: 8px;
+            background: linear-gradient(to bottom, #10b981, #34d399);
+            border-radius: 2px;
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: scroll 2s ease-in-out infinite;
+        }
+
+        @keyframes scroll {
+            0% { opacity: 1; transform: translateX(-50%) translateY(0); }
+            100% { opacity: 0; transform: translateX(-50%) translateY(20px); }
+        }
+
+        /* Toast */
+        #toast {
+            z-index: 10001;
+            transition: transform 0.3s ease;
+        }
+
+        .translate-y-full {
+            transform: translateY(100%);
+        }
+
+        /* Success message */
+        #successMessage {
+            z-index: 10002;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+
+        #overlay {
+            z-index: 10001;
+        }
+
+        /* Back to top */
+        #backToTop {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 3rem;
+            height: 3rem;
+            background: rgba(31, 41, 55, 0.8);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 999;
+        }
+
+        #backToTop.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        #backToTop:hover {
+            background: #10b981;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px -5px rgba(16, 185, 129, 0.5);
+        }
+
+        /* Footer */
+        footer {
+            position: relative;
+            z-index: 10;
+            background: rgba(17, 24, 39, 0.8);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .social-icon {
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-3px) scale(1.1);
+            box-shadow: 0 10px 20px -5px currentColor;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .custom-cursor,
+            .custom-cursor-follower {
+                display: none;
+            }
+            
+            #backToTop {
+                bottom: 1rem;
+                right: 1rem;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+
+<!-- Curseur personnalisé -->
+<div class="custom-cursor"></div>
+<div class="custom-cursor-follower"></div>
+
+<!-- Particles Background -->
+<div id="particles-js" class="fixed inset-0"></div>
+
+<!-- Navigation -->
+<nav id="navbar">
+    <div class="container mx-auto px-6">
+        <div class="flex items-center justify-between h-16">
+            <!-- Logo -->
+            <a href="index.html" class="flex items-center" aria-label="Accueil">
+                <img src="images/LOGO.jpeg" alt="A.S.S Logo" class="h-10 w-auto">
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="nav-link">Accueil</a>
+                <a href="about.html" class="nav-link">À propos</a>
+                <a href="projects.html" class="nav-link">Projets</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="contact.html" class="nav-link active">Contact</a>
+                <div class="language-switcher flex space-x-2 ml-2" aria-label="Choisir la langue">
+                    <button class="lang-btn px-2 py-1 text-sm rounded bg-blue-600" data-lang="fr" aria-pressed="true">FR</button>
+                    <button class="lang-btn px-2 py-1 text-sm rounded bg-gray-700" data-lang="en" aria-pressed="false">EN</button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden text-white focus:outline-none" id="menu-btn">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu hidden md:hidden pb-4">
+            <a href="index.html" class="block py-2 text-gray-300 hover:text-white">Accueil</a>
+            <a href="about.html" class="block py-2 text-gray-300 hover:text-white">À propos</a>
+            <a href="projects.html" class="block py-2 text-gray-300 hover:text-white">Projets</a>
+            <a href="services.html" class="block py-2 text-gray-300 hover:text-white">Services</a>
+            <a href="contact.html" class="block py-2 text-white font-semibold">Contact</a>
+            <div class="language-switcher flex gap-2 pt-3" aria-label="Choisir la langue">
+                <button class="lang-btn px-3 py-1 text-sm rounded bg-blue-600" data-lang="fr" aria-pressed="true">FR</button>
+                <button class="lang-btn px-3 py-1 text-sm rounded bg-gray-700" data-lang="en" aria-pressed="false">EN</button>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Main Content -->
+<main>
+    <div class="container mx-auto px-6">
+        <!-- En-tête avec animation -->
+        <div class="text-center mb-16 fade-in">
+            <h1 class="text-5xl md:text-6xl font-bold mb-4">
+                <span data-language-fr="Contactez-" data-language-en="Contact ">Contactez-</span><span class="bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent" data-language-fr="moi" data-language-en="me">moi</span>
+            </h1>
+            <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto mb-6 animate-pulse"></div>
+            <p class="text-gray-400 max-w-2xl mx-auto">
+                Vous avez un projet en tête ? Envoyez-moi un message directement sur WhatsApp !
+            </p>
+        </div>
+
+        <div class="grid lg:grid-cols-3 gap-8">
+            <!-- Colonne gauche - Infos -->
+            <div class="lg:col-span-1 space-y-6">
+                <!-- Disponibilité -->
+                <div class="glass-card p-6 rounded-xl hover-scale">
+                    <h3 class="text-xl font-bold mb-4">Disponibilité</h3>
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="w-3 h-3 bg-green-500 rounded-full animate-pulse"></span>
+                        <span class="text-green-400">En ligne</span>
+                    </div>
+                    <div class="space-y-2 text-gray-300">
+                        <p class="flex items-center">
+                            <i class="fas fa-clock text-blue-500 w-8"></i>
+                            <span>Lundi - Vendredi : 9h - 18h</span>
+                        </p>
+                        <p class="flex items-center">
+                            <i class="fas fa-clock text-purple-500 w-8"></i>
+                            <span>Samedi : 10h - 14h</span>
+                        </p>
+                        <p class="flex items-center">
+                            <i class="fas fa-clock text-gray-500 w-8"></i>
+                            <span>Dimanche : Fermé</span>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- WhatsApp Direct -->
+                <a href="https://wa.me/221776868625" target="_blank" rel="noopener noreferrer"
+                   class="glass-card p-6 rounded-xl block bg-gradient-to-r from-green-600/20 to-green-500/20 border border-green-500/30 hover-scale">
+                    <div class="flex items-center gap-4">
+                        <div class="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center animate-float">
+                            <i class="fab fa-whatsapp text-4xl text-green-500"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-xl">WhatsApp Direct</h3>
+                            <p class="text-sm text-gray-400">Cliquez pour démarrer une conversation</p>
+                            <span class="text-xs text-green-400 mt-1 block">Réponse instantanée</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Contact infos -->
+                <div class="space-y-4">
+                    <div class="glass-card p-4 rounded-xl flex items-center gap-4 hover-scale">
+                        <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-phone-alt text-xl"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-400">Téléphone</p>
+                            <a href="tel:+221776868625" class="text-lg font-semibold hover:text-blue-400 transition-colors">
+                                +221 77 686 86 25
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="glass-card p-4 rounded-xl flex items-center gap-4 hover-scale">
+                        <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-envelope text-xl"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-400">Email</p>
+                            <a href="mailto:as.s9@zig.univ.sn" class="text-lg font-semibold hover:text-purple-400 transition-colors">
+                                as.s9@zig.univ.sn
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="glass-card p-4 rounded-xl flex items-center gap-4 hover-scale">
+                        <div class="w-12 h-12 bg-gradient-to-r from-red-500 to-orange-500 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-map-marker-alt text-xl"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-400">Localisation</p>
+                            <p class="text-lg font-semibold">Dakar, Sénégal</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Colonne droite - Formulaire -->
+            <div class="lg:col-span-2">
+                <div class="glass-card p-8 rounded-2xl">
+                    <h2 class="text-2xl font-bold mb-6 flex items-center gap-2">
+                        <i class="fab fa-whatsapp text-green-500 animate-float"></i>
+                        Formulaire de contact WhatsApp
+                    </h2>
+                    
+                    <!-- Barre de progression -->
+                    <div class="mb-6">
+                        <div class="flex justify-between text-sm text-gray-400 mb-2">
+                            <span>Progression</span>
+                            <span id="formProgress">0%</span>
+                        </div>
+                        <div class="h-2 bg-gray-700 rounded-full overflow-hidden">
+                            <div id="progressBar" class="h-full bg-gradient-to-r from-green-500 to-green-400 transition-all duration-300" style="width: 0%"></div>
+                        </div>
+                    </div>
+
+                    <form id="contactForm" class="space-y-4">
+                        <!-- Nom -->
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" required placeholder=" ">
+                            <label for="name">Nom complet *</label>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" required placeholder=" ">
+                            <label for="email">Email *</label>
+                        </div>
+
+                        <!-- Téléphone -->
+                        <div class="form-group">
+                            <input type="tel" id="phone" name="phone" placeholder=" ">
+                            <label for="phone">Téléphone (optionnel)</label>
+                        </div>
+
+                        <!-- Sujet -->
+                        <div class="form-group">
+                            <select id="subject" name="subject" required>
+                                <option value="" selected disabled>Choisissez un sujet</option>
+                                <option value="Demande de devis">Demande de devis</option>
+                                <option value="Proposition de collaboration">Proposition de collaboration</option>
+                                <option value="Opportunité professionnelle">Opportunité professionnelle</option>
+                                <option value="Question générale">Question générale</option>
+                                <option value="Autre">Autre</option>
+                            </select>
+                            <label for="subject">Sujet *</label>
+                        </div>
+
+                        <!-- Budget (caché par défaut) -->
+                        <div id="budgetSection" class="hidden glass-card p-4 rounded-lg">
+                            <label class="block text-sm text-gray-400 mb-3">Budget estimé</label>
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                                <label class="flex items-center gap-2 cursor-pointer hover:text-green-400">
+                                    <input type="radio" name="budget" value="Moins de 1000€" class="text-green-500">
+                                    <span>< 1000€</span>
+                                </label>
+                                <label class="flex items-center gap-2 cursor-pointer hover:text-green-400">
+                                    <input type="radio" name="budget" value="1000€ - 3000€" class="text-green-500">
+                                    <span>1000-3000€</span>
+                                </label>
+                                <label class="flex items-center gap-2 cursor-pointer hover:text-green-400">
+                                    <input type="radio" name="budget" value="3000€ - 5000€" class="text-green-500">
+                                    <span>3000-5000€</span>
+                                </label>
+                                <label class="flex items-center gap-2 cursor-pointer hover:text-green-400">
+                                    <input type="radio" name="budget" value="Plus de 5000€" class="text-green-500">
+                                    <span>>5000€</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Message -->
+                        <div class="form-group">
+                            <textarea id="message" name="message" rows="5" required placeholder=" "></textarea>
+                            <label for="message">Message *</label>
+                            <div class="flex justify-between text-xs text-gray-500 mt-1">
+                                <span id="messageCount">0</span>
+                                <span>/ 500 caractères</span>
+                            </div>
+                        </div>
+
+                        <!-- Captcha -->
+                        <div class="flex items-center gap-4 p-4 bg-gray-800/50 rounded-lg">
+                            <div class="flex items-center gap-2 text-xl font-bold">
+                                <span id="captchaNum1" class="text-green-400">5</span>
+                                <span>+</span>
+                                <span id="captchaNum2" class="text-green-400">3</span>
+                                <span>=</span>
+                            </div>
+                            <input type="number" id="captcha" class="w-20 px-3 py-2 bg-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" placeholder="?">
+                            <span class="text-xs text-gray-500">Anti-spam</span>
+                        </div>
+
+                        <!-- Consentement -->
+                        <label class="flex items-start gap-3 cursor-pointer group">
+                            <input type="checkbox" id="consent" required class="mt-1 text-green-500">
+                            <span class="text-sm text-gray-400 group-hover:text-gray-300 transition-colors">
+                                J'accepte que mes données soient utilisées pour me recontacter conformément à la 
+                                <a href="privacy.html" class="text-green-500 hover:underline">politique de confidentialité</a>
+                            </span>
+                        </label>
+
+                        <!-- Bouton WhatsApp -->
+                        <button type="submit" 
+                                class="w-full py-4 bg-gradient-to-r from-green-600 to-green-500 rounded-lg font-bold hover:scale-105 transition-all duration-300 flex items-center justify-center gap-3 text-lg group relative overflow-hidden">
+                            <span class="absolute inset-0 bg-gradient-to-r from-green-500 to-green-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                            <span class="relative z-10 flex items-center gap-3">
+                                <i class="fab fa-whatsapp text-2xl animate-float"></i>
+                                Envoyer sur WhatsApp
+                            </span>
+                        </button>
+
+                        <!-- Sauvegarde -->
+                        <button type="button" id="saveDraft" class="text-sm text-gray-500 hover:text-gray-400 transition-colors flex items-center gap-2 mx-auto">
+                            <i class="fas fa-save"></i>
+                            Sauvegarder le brouillon
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Carte -->
+                <div class="glass-card p-6 rounded-2xl mt-8">
+                    <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+                        <i class="fas fa-map-marker-alt text-red-500"></i>
+                        Localisation
+                    </h3>
+                    <div class="h-64 rounded-lg overflow-hidden">
+                        
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d714.6303567631442!2d-17.33898862448592!3d14.786634253575315!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sfr!2ssn!4v1777215143196!5m2!1sfr!2ssn" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                    <div class="flex justify-between mt-4 text-sm">
+                        <span class="text-gray-400">
+                            <i class="fas fa-map-pin text-red-500 mr-1"></i>
+                            Dakar, Sénégal
+                        </span>
+                        
+                        <a href="https://maps.app.goo.gl/eANWqXGdbCy9SeTm6" class="text-green-500 hover:underline flex items-center gap-1">
+                            Itinéraire <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- Footer COMPLET avec toutes les interactions -->
+<footer>
+    <div class="container mx-auto px-6 py-12">
+        <div class="grid md:grid-cols-4 gap-8">
+            <!-- Colonne 1 - Logo et description -->
+            <div class="space-y-4">
+                <a href="index.html" class="text-3xl font-bold inline-block">
+                    <span class="bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">A.S.S</span>
+                    <span class="text-white">.</span>
+                </a>
+                <p class="text-gray-400">
+                    Ingénieur Logiciel & Développeur Web basé à Dakar, Sénégal. Je crée des expériences numériques exceptionnelles.
+                </p>
+                
+                <!-- Live stats -->
+                <div class="flex gap-4 pt-4">
+                    <div class="text-center">
+                        <div class="live-visitors text-2xl font-bold text-blue-500">0</div>
+                        <div class="text-xs text-gray-400">en ligne</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="total-views text-2xl font-bold text-purple-500">0</div>
+                        <div class="text-xs text-gray-400">vues</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-2xl font-bold text-green-500">24/7</div>
+                        <div class="text-xs text-gray-400">support</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Colonne 2 - Liens rapides -->
+            <div>
+                <h4 class="text-lg font-semibold mb-4">Liens rapides</h4>
+                <ul class="space-y-2">
+                    <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors flex items-center gap-2 group">
+                        <i class="fas fa-chevron-right text-xs text-green-500 group-hover:translate-x-1 transition-transform"></i>
+                        Accueil
+                    </a></li>
+                    <li><a href="about.html" class="text-gray-400 hover:text-white transition-colors flex items-center gap-2 group">
+                        <i class="fas fa-chevron-right text-xs text-green-500 group-hover:translate-x-1 transition-transform"></i>
+                        À propos
+                    </a></li>
+                    <li><a href="projects.html" class="text-gray-400 hover:text-white transition-colors flex items-center gap-2 group">
+                        <i class="fas fa-chevron-right text-xs text-green-500 group-hover:translate-x-1 transition-transform"></i>
+                        Projets
+                    </a></li>
+                    <li><a href="services.html" class="text-gray-400 hover:text-white transition-colors flex items-center gap-2 group">
+                        <i class="fas fa-chevron-right text-xs text-green-500 group-hover:translate-x-1 transition-transform"></i>
+                        Services
+                    </a></li>
+                    <li><a href="contact.html" class="text-gray-400 hover:text-white transition-colors flex items-center gap-2 group">
+                        <i class="fas fa-chevron-right text-xs text-green-500 group-hover:translate-x-1 transition-transform"></i>
+                        Contact
+                    </a></li>
+                </ul>
+            </div>
+
+            <!-- Colonne 3 - Services -->
+            <div>
+                <h4 class="text-lg font-semibold mb-4">Services</h4>
+                <ul class="space-y-2">
+                    <li><a href="services.html" class="text-gray-400 hover:text-white transition-colors flex items-center gap-2 group">
+                        <i class="fas fa-code text-blue-500 group-hover:scale-110 transition-transform"></i>
+                        Développement Web
+                    </a></li>
+                    <li><a href="services.html" class="text-gray-400 hover:text-white transition-colors flex items-center gap-2 group">
+                        <i class="fas fa-shopping-cart text-green-500 group-hover:scale-110 transition-transform"></i>
+                        E-commerce
+                    </a></li>
+                    <li><a href="services.html" class="text-gray-400 hover:text-white transition-colors flex items-center gap-2 group">
+                        <i class="fas fa-paint-brush text-purple-500 group-hover:scale-110 transition-transform"></i>
+                        UI/UX Design
+                    </a></li>
+                    <li><a href="services.html" class="text-gray-400 hover:text-white transition-colors flex items-center gap-2 group">
+                        <i class="fas fa-rocket text-orange-500 group-hover:scale-110 transition-transform"></i>
+                        Optimisation
+                    </a></li>
+                </ul>
+            </div>
+
+            <!-- Colonne 4 - Réseaux sociaux -->
+            <div>
+                <h4 class="text-lg font-semibold mb-4">Suivez-moi</h4>
+                <div class="flex flex-wrap gap-3">
+                    <a href="" class="social-icon w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center hover:bg-green-600 text-2xl" title="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="#" class="social-icon w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 text-2xl" title="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="social-icon w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gray-600 text-2xl" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" class="social-icon w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-400 text-2xl" title="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="social-icon w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center hover:bg-pink-600 text-2xl" title="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="social-icon w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center hover:bg-red-600 text-2xl" title="YouTube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+                
+
+            </div>
+        </div>
+
+        <!-- Copyright et mentions légales -->
+        <div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+            <p class="text-gray-400 text-sm">
+                &copy; 2024 Ababacar Souleymane Sane. Tous droits réservés.
+            </p>
+            <div class="flex gap-6 mt-4 md:mt-0">
+                <a href="#" class="text-sm text-gray-400 hover:text-white transition-colors">Mentions légales</a>
+                <a href="privacy.html" class="text-sm text-gray-400 hover:text-white transition-colors">Politique de confidentialité</a>
+                <a href="#" class="text-sm text-gray-400 hover:text-white transition-colors">CGV</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Back to Top Button -->
+<button id="backToTop" class="visible" aria-label="Retour en haut">
+    <i class="fas fa-arrow-up"></i>
+</button>
+
+<!-- Messages -->
+<div id="successMessage" class="hidden fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-green-600 to-green-500 p-8 rounded-2xl text-center z-[10002] max-w-md">
+    <div class="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4 animate-float">
+        <i class="fab fa-whatsapp text-5xl text-white"></i>
+    </div>
+    <h3 class="text-2xl font-bold mb-2">Message prêt !</h3>
+    <p class="mb-4">WhatsApp va s'ouvrir avec votre message pré-rempli.</p>
+    <button onclick="closeSuccessMessage()" class="px-6 py-2 bg-white text-green-600 rounded-full font-bold hover:bg-gray-100 transition-colors">
+        Fermer
+    </button>
+</div>
+<div id="overlay" class="hidden fixed inset-0 bg-black/80 backdrop-blur-sm z-[10001]"></div>
+
+<!-- Toast -->
+<div id="toast" class="fixed bottom-4 right-4 bg-green-600 text-white px-6 py-3 rounded-lg shadow-lg transform translate-y-full transition-transform duration-300 z-[10003]"></div>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="language.js?v=4"></script>
+
+<script>
+// Configuration
+const WHATSAPP_NUMBER = '221776868625'; // À remplacer par votre numéro
+
+// Initialisation
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('Initialisation de la page contact...');
+    
+    initParticles();
+    initNavigation();
+    initCustomCursor();
+    initForm();
+    initBackToTop();
+    initLiveStats();
+    initAnimations();
+    generateCaptcha();
+    loadDraft();
+});
+
+// Particles.js
+function initParticles() {
+    if (typeof particlesJS !== 'undefined') {
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 50, density: { enable: true, value_area: 800 } },
+                color: { value: '#10b981' },
+                shape: { type: 'circle' },
+                opacity: { value: 0.3, random: true },
+                size: { value: 2, random: true },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: '#10b981',
+                    opacity: 0.2,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 1,
+                    direction: 'none',
+                    random: true,
+                    straight: false,
+                    out_mode: 'out'
+                }
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: {
+                    onhover: { enable: true, mode: 'grab' },
+                    onclick: { enable: true, mode: 'push' },
+                    resize: true
+                },
+                modes: {
+                    grab: { distance: 140, line_linked: { opacity: 0.5 } },
+                    push: { particles_nb: 2 }
+                }
+            },
+            retina_detect: true
+        });
+    }
+}
+
+// Navigation
+function initNavigation() {
+    const navbar = document.getElementById('navbar');
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    
+    // Scroll effect
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+    
+    // Mobile menu
+    if (menuBtn && mobileMenu) {
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            const icon = menuBtn.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+    }
+    
+    // Close mobile menu on resize
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 768 && mobileMenu) {
+            mobileMenu.classList.add('hidden');
+            const icon = menuBtn?.querySelector('i');
+            if (icon) {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        }
+    });
+}
+
+// Curseur personnalisé
+function initCustomCursor() {
+    const cursor = document.querySelector('.custom-cursor');
+    const follower = document.querySelector('.custom-cursor-follower');
+    
+    if (!cursor || !follower) return;
+    
+    document.addEventListener('mousemove', (e) => {
+        cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+        follower.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+    });
+    
+    document.addEventListener('mousedown', () => {
+        cursor.style.transform += ' scale(0.8)';
+        follower.style.transform += ' scale(1.5)';
+    });
+    
+    document.addEventListener('mouseup', () => {
+        cursor.style.transform = cursor.style.transform.replace(' scale(0.8)', '');
+        follower.style.transform = follower.style.transform.replace(' scale(1.5)', '');
+    });
+    
+    // Hover effects
+    document.querySelectorAll('a, button, .glass-card, .social-icon').forEach(el => {
+        el.addEventListener('mouseenter', () => {
+            cursor.classList.add('hover');
+            follower.classList.add('hover');
+        });
+        
+        el.addEventListener('mouseleave', () => {
+            cursor.classList.remove('hover');
+            follower.classList.remove('hover');
+        });
+    });
+}
+
+// Formulaire
+function initForm() {
+    const form = document.getElementById('contactForm');
+    if (!form) return;
+    
+    // Validation en temps réel
+    form.querySelectorAll('input, textarea, select').forEach(field => {
+        field.addEventListener('input', () => {
+            validateField(field);
+            updateProgress();
+        });
+        
+        field.addEventListener('focus', () => {
+            field.closest('.form-group')?.classList.add('focused');
+        });
+        
+        field.addEventListener('blur', () => {
+            if (!field.value) {
+                field.closest('.form-group')?.classList.remove('focused');
+            }
+        });
+    });
+    
+    // Sujet -> afficher budget
+    const subjectSelect = document.getElementById('subject');
+    subjectSelect.addEventListener('change', function() {
+        const budgetSection = document.getElementById('budgetSection');
+        if (this.value === 'Demande de devis') {
+            budgetSection.classList.remove('hidden');
+            budgetSection.classList.add('animate-fadeIn');
+        } else {
+            budgetSection.classList.add('hidden');
+        }
+    });
+    
+    // Compteur message
+    const messageField = document.getElementById('message');
+    messageField.addEventListener('input', function() {
+        document.getElementById('messageCount').textContent = this.value.length;
+    });
+    
+    // Soumission
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Vérifier captcha
+        const captcha = parseInt(document.getElementById('captcha').value);
+        if (captcha !== window.captchaResult) {
+            showToast('Captcha incorrect', 'error');
+            generateCaptcha();
+            return;
+        }
+        
+        // Vérifier consentement
+        if (!document.getElementById('consent').checked) {
+            showToast('Veuillez accepter les conditions', 'error');
+            return;
+        }
+        
+        // Récupérer données
+        const data = {
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            phone: document.getElementById('phone').value || (document.documentElement.lang === 'en' ? 'Not provided' : 'Non renseigné'),
+            subject: document.getElementById('subject').value,
+            budget: document.querySelector('input[name="budget"]:checked')?.value || (document.documentElement.lang === 'en' ? 'Not specified' : 'Non spécifié'),
+            message: document.getElementById('message').value
+        };
+        
+        // Créer message WhatsApp
+        const isEnglish = document.documentElement.lang === 'en';
+        const subject = isEnglish ? window.portfolioTranslate(data.subject, 'en') : data.subject;
+        const budget = isEnglish ? window.portfolioTranslate(data.budget, 'en') : data.budget;
+        const message = isEnglish
+            ? `*New message from the portfolio*\n\n*Name:* ${data.name}\n*Email:* ${data.email}\n*Phone:* ${data.phone}\n*Subject:* ${subject}\n*Budget:* ${budget}\n\n*Message:*\n${data.message}`
+            : `*Nouveau message depuis le portfolio*\n\n*Nom:* ${data.name}\n*Email:* ${data.email}\n*Téléphone:* ${data.phone}\n*Sujet:* ${subject}\n*Budget:* ${budget}\n\n*Message:*\n${data.message}`;
+        
+        // Ouvrir WhatsApp
+        window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, '_blank');
+        
+        // Afficher succès
+        document.getElementById('successMessage').classList.remove('hidden');
+        document.getElementById('overlay').classList.remove('hidden');
+        
+        // Tracker l'événement
+        trackEvent('Contact', 'WhatsApp', data.subject);
+        
+        // Réinitialiser
+        form.reset();
+        localStorage.removeItem('contactDraft');
+        updateProgress();
+        generateCaptcha();
+        
+        // Retirer les classes focused
+        document.querySelectorAll('.form-group').forEach(g => g.classList.remove('focused'));
+    });
+    
+    // Sauvegarde
+    document.getElementById('saveDraft').addEventListener('click', function() {
+        const draft = {
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            phone: document.getElementById('phone').value,
+            subject: document.getElementById('subject').value,
+            message: document.getElementById('message').value
+        };
+        localStorage.setItem('contactDraft', JSON.stringify(draft));
+        showToast('Brouillon sauvegardé !', 'success');
+    });
+}
+
+// Validation champ
+function validateField(field) {
+    const value = field.value.trim();
+    let isValid = true;
+    
+    if (field.required && !value) {
+        field.style.borderColor = '#ef4444';
+        isValid = false;
+    } else if (field.type === 'email' && value) {
+        isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+        field.style.borderColor = isValid ? '#10b981' : '#ef4444';
+    } else if (field.id === 'message' && value.length < 10 && value.length > 0) {
+        field.style.borderColor = '#ef4444';
+        isValid = false;
+    } else {
+        field.style.borderColor = value ? '#10b981' : '#374151';
+    }
+    
+    return isValid;
+}
+
+// Progression
+function updateProgress() {
+    const fields = ['name', 'email', 'subject', 'message'];
+    let filled = 0;
+    
+    fields.forEach(id => {
+        const field = document.getElementById(id);
+        if (field && field.value.trim()) filled++;
+    });
+    
+    const progress = (filled / fields.length) * 100;
+    document.getElementById('formProgress').textContent = Math.round(progress) + '%';
+    document.getElementById('progressBar').style.width = progress + '%';
+}
+
+// Captcha
+function generateCaptcha() {
+    const num1 = Math.floor(Math.random() * 10);
+    const num2 = Math.floor(Math.random() * 10);
+    document.getElementById('captchaNum1').textContent = num1;
+    document.getElementById('captchaNum2').textContent = num2;
+    window.captchaResult = num1 + num2;
+}
+
+// Charger brouillon
+function loadDraft() {
+    const draft = localStorage.getItem('contactDraft');
+    if (draft) {
+        try {
+            const data = JSON.parse(draft);
+            Object.keys(data).forEach(key => {
+                const field = document.getElementById(key);
+                if (field && data[key]) {
+                    field.value = data[key];
+                    field.dispatchEvent(new Event('input'));
+                    field.closest('.form-group')?.classList.add('focused');
+                }
+            });
+            showToast('Brouillon chargé', 'info');
+        } catch (e) {
+            console.error('Erreur de chargement du brouillon');
+        }
+    }
+}
+
+
+
+// Back to Top
+function initBackToTop() {
+    const backToTop = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            backToTop.classList.add('visible');
+        } else {
+            backToTop.classList.remove('visible');
+        }
+    });
+    
+    backToTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+}
+
+// Live Stats
+function initLiveStats() {
+    const updateStats = () => {
+        const visitors = Math.floor(Math.random() * 50) + 10;
+        const views = Math.floor(Math.random() * 1000) + 500;
+        
+        document.querySelectorAll('.live-visitors').forEach(el => {
+            el.textContent = visitors;
+        });
+        
+        document.querySelectorAll('.total-views').forEach(el => {
+            el.textContent = views.toLocaleString();
+        });
+    };
+    
+    updateStats();
+    setInterval(updateStats, 30000);
+}
+
+// Animations GSAP
+function initAnimations() {
+    if (typeof gsap !== 'undefined') {
+        gsap.from('.fade-in', {
+            scrollTrigger: {
+                trigger: '.fade-in',
+                start: 'top bottom',
+                toggleActions: 'play none none reverse'
+            },
+            y: 50,
+            opacity: 0,
+            duration: 1
+        });
+        
+        gsap.utils.toArray('.glass-card').forEach((card, i) => {
+            gsap.from(card, {
+                scrollTrigger: {
+                    trigger: card,
+                    start: 'top bottom-=50',
+                    toggleActions: 'play none none reverse'
+                },
+                y: 30,
+                opacity: 0,
+                duration: 0.6,
+                delay: i * 0.1
+            });
+        });
+    }
+}
+
+// Toast
+function showToast(message, type = 'info') {
+    if (window.portfolioTranslate) {
+        message = window.portfolioTranslate(message);
+    }
+    const toast = document.getElementById('toast');
+    toast.textContent = message;
+    
+    toast.className = `fixed bottom-4 right-4 px-6 py-3 rounded-lg shadow-lg transform transition-transform duration-300 z-[10003] ${
+        type === 'error' ? 'bg-red-600' :
+        type === 'success' ? 'bg-green-600' :
+        'bg-blue-600'
+    } text-white`;
+    
+    toast.classList.remove('translate-y-full');
+    
+    setTimeout(() => {
+        toast.classList.add('translate-y-full');
+    }, 3000);
+}
+
+// Fermer message succès
+function closeSuccessMessage() {
+    document.getElementById('successMessage').classList.add('hidden');
+    document.getElementById('overlay').classList.add('hidden');
+}
+
+// Analytics
+function trackEvent(category, action, label) {
+    console.log('Event:', { category, action, label });
+    
+    // Google Analytics
+    if (typeof gtag !== 'undefined') {
+        gtag('event', action, {
+            'event_category': category,
+            'event_label': label
+        });
+    }
+    
+    // Local storage
+    const events = JSON.parse(localStorage.getItem('analytics') || '[]');
+    events.push({ category, action, label, timestamp: Date.now() });
+    localStorage.setItem('analytics', JSON.stringify(events));
+}
+
+// Online/Offline
+window.addEventListener('online', () => showToast('Vous êtes de nouveau en ligne', 'success'));
+window.addEventListener('offline', () => showToast('Mode hors ligne activé', 'info'));
+
+// Visibility change
+document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+        console.log('Page cachée');
+    } else {
+        console.log('Page visible');
+        generateCaptcha();
+    }
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>À propos - Ababacar Souleymane Sane | Ingénieur Logiciel</title>
+    <meta name="description" content="Découvrez le parcours, les compétences et l'expérience de Ababacar Souleymane Sane , ingénieur logiciel basé à Dakar">
+    <meta name="keywords" content="à propos, CV, parcours, compétences, expérience, ingénieur logiciel Sénégal">
+    <meta name="author" content="Ababacar Souleymane Sane ">
+    <meta name="language" content="fr">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="profile">
+    <meta property="og:url" content="https://khalifasane.dev/about">
+    <meta property="og:title" content="À propos de Ababacar Souleymane Sane">
+    <meta property="og:description" content="Découvrez mon parcours et mes compétences en développement web">
+    <meta property="og:image" content="https://khalifasane.dev/images/about-og.jpg">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="À propos de Ababacar Souleymane Sane">
+    <meta name="twitter:description" content="Découvrez mon parcours et mes compétences en développement web">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#3b82f6">
+</head>
+<body class="bg-gray-900 text-white overflow-x-hidden">
+    <!-- Skip link -->
+    <a href="#main-content" class="skip-link">Aller au contenu</a>
+    
+    <!-- Curseur personnalisé -->
+    <div class="custom-cursor"></div>
+    <div class="custom-cursor-follower"></div>
+
+    <!-- Particles Background -->
+    <div id="particles-js" class="fixed inset-0 z-0"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 w-full z-50 transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="flex items-center" aria-label="Accueil">
+                    <img src="images/LOGO.jpeg" alt="A.S.S Logo" class="h-10 w-auto">
+                </a>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link text-gray-300 hover:text-white transition-colors relative group">Accueil</a>
+                    <a href="about.html" class="nav-link text-white font-semibold relative group" aria-current="page">À propos</a>
+                    <a href="projects.html" class="nav-link text-gray-300 hover:text-white transition-colors relative group">Projets</a>
+                    <a href="services.html" class="nav-link text-gray-300 hover:text-white transition-colors relative group">Services</a>
+                    <a href="contact.html" class="nav-link text-gray-300 hover:text-white transition-colors relative group">Contact</a>
+                    <div class="language-switcher flex space-x-2 ml-2" aria-label="Choisir la langue">
+                        <button class="lang-btn px-2 py-1 text-sm rounded bg-blue-600" data-lang="fr" aria-pressed="true">FR</button>
+                        <button class="lang-btn px-2 py-1 text-sm rounded bg-gray-700" data-lang="en" aria-pressed="false">EN</button>
+                    </div>
+                </div>
+                <button class="md:hidden text-white focus:outline-none" id="menu-btn" aria-label="Menu">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+            <div class="mobile-menu hidden md:hidden mt-4 pb-4">
+                <a href="index.html" class="block py-2 text-gray-300 hover:text-white">Accueil</a>
+                <a href="about.html" class="block py-2 text-white font-semibold">À propos</a>
+                <a href="projects.html" class="block py-2 text-gray-300 hover:text-white">Projets</a>
+                <a href="services.html" class="block py-2 text-gray-300 hover:text-white">Services</a>
+                <a href="contact.html" class="block py-2 text-gray-300 hover:text-white">Contact</a>
+                <div class="language-switcher flex gap-2 pt-3" aria-label="Choisir la langue">
+                    <button class="lang-btn px-3 py-1 text-sm rounded bg-blue-600" data-lang="fr" aria-pressed="true">FR</button>
+                    <button class="lang-btn px-3 py-1 text-sm rounded bg-gray-700" data-lang="en" aria-pressed="false">EN</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="main-content" class="pt-32 pb-20 relative z-10">
+        <div class="container mx-auto px-6">
+            <!-- En-tête avec effet 3D -->
+            <div class="text-center mb-16 perspective" data-tilt>
+                <h1 class="text-5xl md:text-6xl font-bold mb-4 transform-style-3d">
+                    <span class="bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">À propos</span> <span data-language-fr="de moi" data-language-en="me">de moi</span>
+                </h1>
+                <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto"></div>
+                <p class="text-gray-400 mt-4 max-w-2xl mx-auto">
+                    Découvrez mon parcours, mes compétences et ma passion pour le développement web
+                </p>
+            </div>
+
+            <!-- Section Introduction avec parallaxe - CORRIGÉE -->
+            <div class="grid md:grid-cols-2 gap-12 items-center mb-20">
+                <!-- Carte "Qui suis-je" - Plus de classe parallaxe qui cause problème -->
+                <div class="glass-card p-8 rounded-2xl" id="about-intro">
+                    <div class="relative">
+                        <h2 class="text-3xl font-bold mb-6 flex items-center">
+                            <i class="fas fa-user-circle text-blue-500 mr-3"></i>
+                            Qui suis-je ?
+                        </h2>
+                        <p class="text-gray-300 leading-relaxed mb-4" data-i18n="about.para1">
+                            Je m'appelle <span class="text-blue-400 font-semibold">Ababacar Souleymane Sane</span>, un passionné de l'ingénieur logiciel  basé à Dakar, Sénégal. Avec plus de 3 ans d'expérience dans le développement web, je crée des solutions numériques innovantes qui allient performance et esthétique.
+                        </p>
+                        <p class="text-gray-300 leading-relaxed mb-4" data-i18n="about.para2"> 
+                            Mon parcours m'a permis de travailler sur une variété de projets, des sites vitrines aux applications e-commerce complexes. Je suis constamment à l'affût des nouvelles technologies pour offrir le meilleur à mes clients.
+                        </p>
+                        <p class="text-gray-300 leading-relaxed" data-i18n="about.para3">
+                            Au-delà du code, je suis passionné par le partage de connaissances et l'innovation technologique.
+                        </p>
+                        
+        
+                        
+                        <!-- Badges -->
+                        <div class="flex flex-wrap gap-3 mt-6">
+                            <span class="px-3 py-1 bg-blue-500/20 rounded-full text-sm">🇸🇳 Basé à Dakar</span>
+                            <span class="px-3 py-1 bg-purple-500/20 rounded-full text-sm">🎓 licence Informatique</span>
+                            <span class="px-3 py-1 bg-pink-500/20 rounded-full text-sm">💼 3+ ans d'expérience</span>
+                            <span class="px-3 py-1 bg-green-500/20 rounded-full text-sm">🌍 20+ projets livrés</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Statistiques avec compteurs animés -->
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="glass-card p-6 rounded-xl text-center transform hover:scale-105 transition-all duration-300">
+                        <div class="text-4xl font-bold text-blue-500 counter mb-2" data-target="20" id="projects-counter">0</div>
+                        <div class="text-gray-400">Projets réalisés</div>
+                        <div class="w-full bg-gray-700 h-1 mt-2 rounded">
+                            <div class="bg-blue-500 h-1 rounded skill-bar-fill" data-width="95" style="width: 0%;"></div>
+                        </div>
+                    </div>
+                    <div class="glass-card p-6 rounded-xl text-center transform hover:scale-105 transition-all duration-300">
+                        <div class="text-4xl font-bold text-purple-500 counter mb-2" data-target="15" id="technologies-counter">0</div>
+                        <div class="text-gray-400">Technologies maîtrisées</div>
+                        <div class="w-full bg-gray-700 h-1 mt-2 rounded">
+                            <div class="bg-purple-500 h-1 rounded skill-bar-fill" data-width="88" style="width: 0%;"></div>
+                        </div>
+                    </div>
+                    <div class="glass-card p-6 rounded-xl text-center transform hover:scale-105 transition-all duration-300">
+                        <div class="text-4xl font-bold text-pink-500 counter mb-2" data-target="20" id="clients-counter">0</div>
+                        <div class="text-gray-400">Clients satisfaits</div>
+                        <div class="w-full bg-gray-700 h-1 mt-2 rounded">
+                            <div class="bg-pink-500 h-1 rounded skill-bar-fill" data-width="92" style="width: 0%;"></div>
+                        </div>
+                    </div>
+                    <div class="glass-card p-6 rounded-xl text-center transform hover:scale-105 transition-all duration-300">
+                        <div class="text-4xl font-bold text-green-500 counter mb-2" data-target="3" id="years-counter">0</div>
+                        <div class="text-gray-400">Années d'expérience</div>
+                        <div class="w-full bg-gray-700 h-1 mt-2 rounded">
+                            <div class="bg-green-500 h-1 rounded skill-bar-fill" data-width="100" style="width: 0%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+               
+
+            <!-- Timeline d'expérience -->
+            <div class="mb-20">
+                <h2 class="text-3xl font-bold mb-12 text-center">
+                    <span class="bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent" data-language-fr="Mon parcours" data-language-en="My professional">Mon parcours</span> <span data-language-fr="professionnel" data-language-en="journey">professionnel</span>
+                </h2>
+                
+                <div class="relative">
+                    <!-- Ligne verticale -->
+                    <div class="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-blue-500 to-purple-600 hidden md:block"></div>
+                    
+                    <div class="space-y-12">
+                        <!-- Expérience 1 -->
+                        <div class="relative flex flex-col md:flex-row items-center md:items-start gap-8">
+                            <div class="md:w-1/2 md:text-right">
+                                <div class="glass-card p-6 rounded-xl transform hover:scale-105 transition-all duration-300">
+                                    <h3 class="text-xl font-bold mb-2">Ingénieur Logiciel Senior</h3>
+                                    <p class="text-blue-400 mb-2">universite UASZ de ziguinchor · 2022/2025 - Présent</p>
+                                    <p class="text-gray-400 text-sm">
+                                        Leadership technique d'équipe, développement d'applications enterprise, mentoring des développeurs juniors, optimisation des performances.
+                                    </p>
+                                    <div class="flex flex-wrap gap-2 mt-4">
+                                        <span class="px-2 py-1 bg-gray-700 rounded text-xs">React</span>
+                                        <span class="px-2 py-1 bg-gray-700 rounded text-xs">Node.js</span>
+                                        <span class="px-2 py-1 bg-gray-700 rounded text-xs">Sping boot</span>
+                                        <span class="px-2 py-1 bg-gray-700 rounded text-xs">theamleaf</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="w-4 h-4 bg-blue-500 rounded-full border-4 border-gray-900 z-10"></div>
+                            <div class="md:w-1/2"></div>
+                        </div>
+                        
+                        <!-- Expérience 2 -->
+                        <div class="relative flex flex-col md:flex-row items-center md:items-start gap-8">
+                            <div class="md:w-1/2"></div>
+                            <div class="w-4 h-4 bg-purple-500 rounded-full border-4 border-gray-900 z-10"></div>
+                            <div class="md:w-1/2">
+                                <div class="glass-card p-6 rounded-xl transform hover:scale-105 transition-all duration-300">
+                                    <h3 class="text-xl font-bold mb-2">Développeur Web Full Stack</h3>
+                                    <p class="text-purple-400 mb-2">GIE all ya tout service · 2025 - 2026</p>
+                                    <p class="text-gray-400 text-sm" data-language-fr="Développement de sites web et d'applications e-commerce, création d'interfaces responsives et intégration de solutions adaptées aux besoins de chaque client." data-language-en="Built websites and e-commerce applications, designed responsive interfaces, and integrated solutions tailored to each client's needs.">
+                                        Développement de sites web et d'applications e-commerce, création d'interfaces responsives et intégration de solutions adaptées aux besoins de chaque client.
+                                    </p>
+                                    <div class="flex flex-wrap gap-2 mt-4">
+                                        <span class="px-2 py-1 bg-gray-700 rounded text-xs">spring boot</span>
+                                        <span class="px-2 py-1 bg-gray-700 rounded text-xs">theamleaf</span>
+                                        <span class="px-2 py-1 bg-gray-700 rounded text-xs">MySQL</span>
+                                        <span class="px-2 py-1 bg-gray-700 rounded text-xs">AWS</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Expérience 3 
+                        <div class="relative flex flex-col md:flex-row items-center md:items-start gap-8">
+                            <div class="md:w-1/2 md:text-right">
+                                <div class="glass-card p-6 rounded-xl transform hover:scale-105 transition-all duration-300">
+                                    <h3 class="text-xl font-bold mb-2">Développeur Frontend</h3>
+                                    <p class="text-pink-400 mb-2">StartUp Innovators · 2018 - 2020</p>
+                                    <p class="text-gray-400 text-sm">
+                                        Création d'interfaces utilisateur interactives, collaboration avec l'équipe design, optimisation des performances frontend.
+                                    </p>
+                                    <div class="flex flex-wrap gap-2 mt-4">
+                                        <span class="px-2 py-1 bg-gray-700 rounded text-xs">JavaScript</span>
+                                        <span class="px-2 py-1 bg-gray-700 rounded text-xs">React</span>
+                                        <span class="px-2 py-1 bg-gray-700 rounded text-xs">Tailwind</span>
+                                        <span class="px-2 py-1 bg-gray-700 rounded text-xs">Figma</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="w-4 h-4 bg-pink-500 rounded-full border-4 border-gray-900 z-10"></div>
+                            <div class="md:w-1/2"></div>
+                        </div>
+                        -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Compétences détaillées -->
+            <div class="mb-20">
+                <h2 class="text-3xl font-bold mb-12 text-center">
+                    <span data-language-fr="Mes" data-language-en="My">Mes</span> <span class="bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent" data-language-fr="compétences" data-language-en="technical">compétences</span> <span data-language-fr="techniques" data-language-en="skills">techniques</span>
+                </h2>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Frontend -->
+                    <div class="glass-card p-8 rounded-2xl">
+                        <h3 class="text-2xl font-bold mb-6 flex items-center">
+                            <i class="fas fa-code text-blue-500 mr-3"></i>
+                            Frontend Development
+                        </h3>
+                        
+                        <div class="space-y-4">
+                            <div class="skill-item">
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium">HTML5 / CSS3</span>
+                                    <span class="text-blue-400">95%</span>
+                                </div>
+                                <div class="skill-bar-bg">
+                                    <div class="skill-bar-fill" data-width="95"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-item">
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium">JavaScript / TypeScript</span>
+                                    <span class="text-blue-400">90%</span>
+                                </div>
+                                <div class="skill-bar-bg">
+                                    <div class="skill-bar-fill" data-width="90"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-item">
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium">React / Next.js</span>
+                                    <span class="text-blue-400">88%</span>
+                                </div>
+                                <div class="skill-bar-bg">
+                                    <div class="skill-bar-fill" data-width="88"></div>
+                                </div>
+                            </div>
+                            
+                            
+                            <div class="skill-item">
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium">Tailwind CSS / Sass</span>
+                                    <span class="text-blue-400">92%</span>
+                                </div>
+                                <div class="skill-bar-bg">
+                                    <div class="skill-bar-fill" data-width="92"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Backend & Autres -->
+                    <div class="glass-card p-8 rounded-2xl">
+                        <h3 class="text-2xl font-bold mb-6 flex items-center">
+                            <i class="fas fa-server text-purple-500 mr-3"></i>
+                            Backend & Outils
+                        </h3>
+                        
+                        <div class="space-y-4">
+                            
+                            
+                            <div class="skill-item">
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium">Python / Django</span>
+                                    <span class="text-purple-400">82%</span>
+                                </div>
+                                <div class="skill-bar-bg">
+                                    <div class="skill-bar-fill" data-width="82"></div>
+                                </div>
+                            </div>
+                            
+                            
+                            
+                            <div class="skill-item">
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium">MySQL / MongoDB</span>
+                                    <span class="text-purple-400">85%</span>
+                                </div>
+                                <div class="skill-bar-bg">
+                                    <div class="skill-bar-fill" data-width="85"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-item">
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium">Git / Docker / AWS</span>
+                                    <span class="text-purple-400">83%</span>
+                                </div>
+                                <div class="skill-bar-bg">
+                                    <div class="skill-bar-fill" data-width="83"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Soft Skills avec icônes 3D -->
+           <!-- Soft Skills avec icônes 3D -->
+<div class="mb-20">
+    <h2 class="text-3xl font-bold mb-12 text-center">
+        <span class="bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
+            Soft Skills
+        </span>
+    </h2>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+
+        <!-- Skill 1 -->
+        <div class="soft-skill-card text-center group perspective">
+            <div class="relative w-32 h-32 mx-auto mb-4 transform-style-3d transition-transform duration-500 group-hover:rotate-y-180">
+
+                <!-- Front -->
+                <div class="absolute inset-0 backface-hidden flex items-center justify-center">
+                    <div class="w-full h-full bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center">
+                        <i class="fas fa-users text-4xl"></i>
+                    </div>
+                </div>
+
+                <!-- Back -->
+                <div class="absolute inset-0 backface-hidden rotate-y-180 flex items-center justify-center">
+                    <div class="w-full h-full bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center">
+                        <span class="font-bold text-center text-white">
+                            <span data-language-fr="Travail" data-language-en="Team">Travail</span><br><span data-language-fr="d'équipe" data-language-en="work">d'équipe</span>
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Skill 2 -->
+        <div class="soft-skill-card text-center group perspective">
+            <div class="relative w-32 h-32 mx-auto mb-4 transform-style-3d transition-transform duration-500 group-hover:rotate-y-180">
+
+                <div class="absolute inset-0 backface-hidden flex items-center justify-center">
+                    <div class="w-full h-full bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center">
+                        <i class="fas fa-lightbulb text-4xl"></i>
+                    </div>
+                </div>
+
+                <div class="absolute inset-0 backface-hidden rotate-y-180 flex items-center justify-center">
+                    <div class="w-full h-full bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-full flex items-center justify-center">
+                        <span class="font-bold text-center text-white">
+                            <span data-language-fr="Résolution" data-language-en="Problem">Résolution</span><br><span data-language-fr="de problèmes" data-language-en="solving">de problèmes</span>
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Skill 3 -->
+        <div class="soft-skill-card text-center group perspective">
+            <div class="relative w-32 h-32 mx-auto mb-4 transform-style-3d transition-transform duration-500 group-hover:rotate-y-180">
+
+                <div class="absolute inset-0 backface-hidden flex items-center justify-center">
+                    <div class="w-full h-full bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center">
+                        <i class="fas fa-comments text-4xl"></i>
+                    </div>
+                </div>
+
+                <div class="absolute inset-0 backface-hidden rotate-y-180 flex items-center justify-center">
+                    <div class="w-full h-full bg-gradient-to-br from-pink-500 to-pink-600 rounded-full flex items-center justify-center">
+                        <span class="font-bold text-center text-white">
+                            Communication
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Skill 4 -->
+        <div class="soft-skill-card text-center group perspective">
+            <div class="relative w-32 h-32 mx-auto mb-4 transform-style-3d transition-transform duration-500 group-hover:rotate-y-180">
+
+                <div class="absolute inset-0 backface-hidden flex items-center justify-center">
+                    <div class="w-full h-full bg-gradient-to-br from-orange-500 to-orange-600 rounded-full flex items-center justify-center">
+                        <i class="fas fa-clock text-4xl"></i>
+                    </div>
+                </div>
+
+                <div class="absolute inset-0 backface-hidden rotate-y-180 flex items-center justify-center">
+                    <div class="w-full h-full bg-gradient-to-br from-red-500 to-red-600 rounded-full flex items-center justify-center">
+                        <span class="font-bold text-center text-white">
+                            Gestion<br>du temps
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+            
+            <!-- Certifications et formations -->
+            <div class="glass-card p-8 rounded-2xl">
+                <h2 class="text-3xl font-bold mb-8 flex items-center">
+                    <i class="fas fa-certificate text-yellow-500 mr-3"></i>
+                    Certifications
+                </h2>
+                
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="flex items-center space-x-3 p-4 bg-gray-800/50 rounded-lg">
+                        <i class="fab fa-aws text-3xl text-orange-400"></i>
+                        <div>
+                            <h3 class="font-semibold">AWS Certified</h3>
+                            <p class="text-sm text-gray-400">Solutions Architect</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center space-x-3 p-4 bg-gray-800/50 rounded-lg">
+                        <i class="fab fa-google text-3xl text-blue-400"></i>
+                        <div>
+                            <h3 class="font-semibold">Google</h3>
+                            <p class="text-sm text-gray-400">UX Design Professional</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center space-x-3 p-4 bg-gray-800/50 rounded-lg">
+                        <i class="fab fa-microsoft text-3xl text-blue-500"></i>
+                        <div>
+                            <h3 class="font-semibold">Microsoft</h3>
+                            <p class="text-sm text-gray-400">Azure Fundamentals</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="relative z-10 bg-gray-800/50 backdrop-blur-sm border-t border-gray-700">
+        <div class="container mx-auto px-6 py-12">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4"> A.S.S<span class="text-blue-500">.</span></h3>
+                    <p class="text-gray-400">Je crée des expériences numériques exceptionnelles avec passion et précision.</p>
+                    <!-- Live stats -->
+                    <div class="flex space-x-4 mt-4">
+                        <div class="text-center">
+                            <div class="live-visitors text-sm font-bold text-blue-500">0</div>
+                            <div class="text-xs text-gray-400">en ligne</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="total-views text-sm font-bold text-purple-500">0</div>
+                            <div class="text-xs text-gray-400">vues</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Liens rapides</h4>
+                    <ul class="space-y-2">
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition-colors">À propos</a></li>
+                        <li><a href="projects.html" class="text-gray-400 hover:text-white transition-colors">Projets</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition-colors">Services</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Développement Web</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">E-commerce</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">UI/UX Design</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Optimisation</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Suivez-moi</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="social-icon w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-blue-600 transition-all duration-300 transform hover:scale-110">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="social-icon w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-blue-600 transition-all duration-300 transform hover:scale-110">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="social-icon w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-blue-600 transition-all duration-300 transform hover:scale-110">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-icon w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-blue-600 transition-all duration-300 transform hover:scale-110">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400">&copy; 2024 Ababacar Souleymane Sane. Tous droits réservés.</p>
+                <a href="privacy.html" class="text-sm text-gray-400 hover:text-white transition-colors">Politique de confidentialité</a>
+                <button id="backToTop" class="mt-4 md:mt-0 w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors">
+                    <i class="fas fa-arrow-up"></i>
+                </button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast notification -->
+    <div id="toast" class="fixed bottom-4 right-4 bg-gray-800 text-white px-6 py-3 rounded-lg shadow-lg transform translate-y-full transition-transform duration-300 z-50"></div>
+
+    <!-- Scripts -->
+    <script src="language.js?v=4"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

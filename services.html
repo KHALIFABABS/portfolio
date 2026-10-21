@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - Ababacar Souleymane Sane | Développement Web</title>
+    <meta name="description" content="Services de développement web, e-commerce, design UI/UX et optimisation proposés par Ababacar Souleymane Sane.">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://khalifasane.dev/services">
+    <meta property="og:title" content="Services de Ababacar Souleymane Sane">
+    <meta property="og:description" content="Services professionnels de développement web et design">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-900 text-white overflow-x-hidden">
+    <!-- Skip link -->
+    <a href="#main-content" class="skip-link">Aller au contenu</a>
+    
+    <!-- Curseur personnalisé -->
+    <div class="custom-cursor"></div>
+    <div class="custom-cursor-follower"></div>
+
+    <!-- Particles Background -->
+    <div id="particles-js" class="fixed inset-0 z-0"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 w-full z-50 transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="flex items-center" aria-label="Accueil">
+                    <img src="images/LOGO.jpeg" alt="A.S.S Logo" class="h-10 w-auto">
+                </a>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link text-gray-300 hover:text-white">Accueil</a>
+                    <a href="about.html" class="nav-link text-gray-300 hover:text-white">À propos</a>
+                    <a href="projects.html" class="nav-link text-gray-300 hover:text-white">Projets</a>
+                    <a href="services.html" class="nav-link text-white font-semibold" aria-current="page">Services</a>
+                    <a href="contact.html" class="nav-link text-gray-300 hover:text-white">Contact</a>
+                    <div class="language-switcher flex space-x-2 ml-2" aria-label="Choisir la langue">
+                        <button class="lang-btn px-2 py-1 text-sm rounded bg-blue-600" data-lang="fr" aria-pressed="true">FR</button>
+                        <button class="lang-btn px-2 py-1 text-sm rounded bg-gray-700" data-lang="en" aria-pressed="false">EN</button>
+                    </div>
+                </div>
+                <button class="md:hidden text-white focus:outline-none" id="menu-btn">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+            <div class="mobile-menu hidden md:hidden mt-4 pb-4">
+                <a href="index.html" class="block py-2 text-gray-300 hover:text-white">Accueil</a>
+                <a href="about.html" class="block py-2 text-gray-300 hover:text-white">À propos</a>
+                <a href="projects.html" class="block py-2 text-gray-300 hover:text-white">Projets</a>
+                <a href="services.html" class="block py-2 text-white font-semibold">Services</a>
+                <a href="contact.html" class="block py-2 text-gray-300 hover:text-white">Contact</a>
+                <div class="language-switcher flex gap-2 pt-3" aria-label="Choisir la langue">
+                    <button class="lang-btn px-3 py-1 text-sm rounded bg-blue-600" data-lang="fr" aria-pressed="true">FR</button>
+                    <button class="lang-btn px-3 py-1 text-sm rounded bg-gray-700" data-lang="en" aria-pressed="false">EN</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content" class="pt-32 pb-20 relative z-10">
+        <div class="container mx-auto px-6">
+            <!-- En-tête -->
+            <div class="text-center mb-16">
+                <h1 class="text-5xl md:text-6xl font-bold mb-4">
+                    Mes <span class="bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">services</span>
+                </h1>
+                <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto mb-6"></div>
+                <p class="text-gray-400 max-w-2xl mx-auto">
+                    Des solutions sur mesure pour donner vie à vos projets digitaux, de la conception à la réalisation.
+                </p>
+            </div>
+
+            <!-- Grille de services -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1: Développement Web -->
+                <div class="service-card group relative glass-card p-8 rounded-2xl cursor-pointer overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <div class="relative z-10">
+                        <div class="w-20 h-20 mb-6 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                            <i class="fas fa-code text-3xl text-white"></i>
+                        </div>
+                        
+                        <h3 class="text-2xl font-bold mb-4 group-hover:text-white transition-colors">Développement Web</h3>
+                        <p class="text-gray-400 group-hover:text-gray-200 transition-colors mb-4">
+                            Création de sites web modernes, responsives et optimisés pour les moteurs de recherche. Utilisation des dernières technologies.
+                        </p>
+                        
+                        <!-- Caractéristiques -->
+                        <ul class="space-y-2 text-sm text-gray-400 group-hover:text-gray-200 transition-colors">
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check text-green-400"></i> Sites vitrines
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check text-green-400"></i> Blogs et magazines
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check text-green-400"></i> Sites institutionnels
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check text-green-400"></i> Applications web
+                            </li>
+                        </ul>
+                        
+                        <!-- Prix -->
+                        <div class="mt-6 pt-6 border-t border-gray-700">
+                            <div class="flex items-center justify-between">
+                                <span class="text-2xl font-bold text-white">À partir de</span>
+                                <span class="text-3xl font-bold text-blue-400">100 000 frcs</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Service 1: Développement Web -->
+                        <button onclick="openWhatsApp('Développement Web', '230€')" 
+                        class="mt-6 w-full py-3 bg-white/10 rounded-lg font-semibold hover:bg-white/20 transition-colors flex items-center justify-center gap-2 group-hover:bg-white/30">
+                        <i class="fab fa-whatsapp text-green-500 mr-1"></i>
+                        Demander un devis
+                        <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Service 2: E-commerce -->
+                <div class="service-card group relative glass-card p-8 rounded-2xl cursor-pointer overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-r from-green-600 to-teal-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <div class="relative z-10">
+                        <div class="w-20 h-20 mb-6 bg-gradient-to-r from-green-500 to-teal-500 rounded-2xl flex items-center justify-center transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                            <i class="fas fa-shopping-cart text-3xl text-white"></i>
+                        </div>
+                        
+                        <h3 class="text-2xl font-bold mb-4 group-hover:text-white transition-colors">E-commerce</h3>
+                        <p class="text-gray-400 group-hover:text-gray-200 transition-colors mb-4">
+                            Boutiques en ligne complètes avec gestion de stock, paiements sécurisés et interface d'administration intuitive.
+                        </p>
+                        
+                        <ul class="space-y-2 text-sm text-gray-400 group-hover:text-gray-200 transition-colors">
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check text-green-400"></i> Catalogue produits
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check text-green-400"></i> Panier et paiement
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check text-green-400"></i> Multi-devises
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check text-green-400"></i> Dashboard admin
+                            </li>
+                        </ul>
+                        
+                        <div class="mt-6 pt-6 border-t border-gray-700">
+                            <div class="flex items-center justify-between">
+                                <span class="text-2xl font-bold text-white">À partir de</span>
+                                <span class="text-3xl font-bold text-green-400">400 000frcs</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Service 2: E-commerce -->
+                        <button onclick="openWhatsApp('E-commerce', '770€')" 
+                        class="mt-6 w-full py-3 bg-white/10 rounded-lg font-semibold hover:bg-white/20 transition-colors flex items-center justify-center gap-2 group-hover:bg-white/30">
+                        <i class="fab fa-whatsapp text-green-500 mr-1"></i>
+                        Demander un devis
+                        <i class="fas fa-arrow-right"></i>
+                        </button>
+                     </div>
+                </div>
+
+                <!-- Service 3: Landing Page -->
+                <div class="service-card group relative glass-card p-8 rounded-2xl cursor-pointer overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-r from-orange-600 to-red-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <div class="relative z-10">
+                        <div class="w-20 h-20 mb-6 bg-gradient-to-r from-orange-500 to-red-500 rounded-2xl flex items-center justify-center transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                            <i class="fas fa-rocket text-3xl text-white"></i>
+                        </div>
+                        
+                        <h3 class="text-2xl font-bold mb-4 group-hover:text-white transition-colors">Landing Pages</h3>
+                        <p class="text-gray-400 group-hover:text-gray-200 transition-colors mb-4">
+                            Pages d'atterrissage optimisées pour la conversion, conçues pour captiver l'attention et générer des leads.
+                        </p>
+                        
+                        <ul class="space-y-2 text-sm text-gray-400 group-hover:text-gray-200 transition-colors">
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check text-green-400"></i> Design persuasif
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check text-green-400"></i> Formulaires intégrés
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check text-green-400"></i> A/B testing
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check text-green-400"></i> Analytics
+                            </li>
+                        </ul>
+                        
+                        <div class="mt-6 pt-6 border-t border-gray-700">
+                            <div class="flex items-center justify-between">
+                                <span class="text-2xl font-bold text-white">À partir de</span>
+                                <span class="text-3xl font-bold text-orange-400">80 000frcs</span>
+                            </div>
+                        </div>
+                        
+                        <button onclick="openWhatsApp('Landing Page', '160€')" 
+                            class="mt-6 w-full py-3 bg-white/10 rounded-lg font-semibold hover:bg-white/20 transition-colors flex items-center justify-center gap-2 group-hover:bg-white/30">
+                        <i class="fab fa-whatsapp text-green-500 mr-1"></i>
+                        Demander un devis
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                    </div>
+                </div>
+
+                <!-- Service 4: UI/UX Design -->
+                <div class="service-card group relative glass-card p-8 rounded-2xl cursor-pointer overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-r from-pink-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <div class="relative z-10">
+                        <div class="w-20 h-20 mb-6 bg-gradient-to-r from-pink-500 to-purple-500 rounded-2xl flex items-center justify-center transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                            <i class="fas fa-paint-brush text-3xl text-white"></i>
+                        </div>
+                        
+                        <h3 class="text-2xl font-bold mb-4 group-hover:text-white transition-colors">UI/UX Design</h3>
+                        <p class="text-gray-400 group-hover:text-gray-200 transition-colors mb-4">
+                            Conception d'interfaces intuitives et esthétiques, avec un focus sur l'expérience utilisateur et l'accessibilité.
+                        </p>
+                        
+                        <ul class="space-y-2 text-sm text-gray-400 group-hover:text-gray-200 transition-colors">
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check text-green-400"></i> Wireframes
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check text-green-400"></i> Prototypes interactifs
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check text-green-400"></i> Tests utilisateurs
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check text-green-400"></i> Design system
+                            </li>
+                        </ul>
+                        
+                        <div class="mt-6 pt-6 border-t border-gray-700">
+                            <div class="flex items-center justify-between">
+                                <span class="text-2xl font-bold text-white">À partir de</span>
+                                <span class="text-3xl font-bold text-pink-400">80 000frcs</span>
+                            </div>
+                        </div>
+                        
+                        <button onclick="openWhatsApp('UI/UX Design', '400€')" 
+                            class="mt-6 w-full py-3 bg-white/10 rounded-lg font-semibold hover:bg-white/20 transition-colors flex items-center justify-center gap-2 group-hover:bg-white/30">
+                            <i class="fab fa-whatsapp text-green-500 mr-1"></i>
+                            Demander un devis
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Service 5: Optimisation -->
+                <div class="service-card group relative glass-card p-8 rounded-2xl cursor-pointer overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-r from-yellow-600 to-orange-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <div class="relative z-10">
+                        <div class="w-20 h-20 mb-6 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-2xl flex items-center justify-center transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                            <i class="fas fa-chart-line text-3xl text-white"></i>
+                        </div>
+                        
+                        <h3 class="text-2xl font-bold mb-4 group-hover:text-white transition-colors">Optimisation</h3>
+                        <p class="text-gray-400 group-hover:text-gray-200 transition-colors mb-4">
+                            Amélioration des performances, SEO et vitesse de chargement pour offrir la meilleure expérience utilisateur.
+                        </p>
+                        
+                        <ul class="space-y-2 text-sm text-gray-400 group-hover:text-gray-200 transition-colors">
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check text-green-400"></i> Optimisation vitesse
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check text-green-400"></i> Référencement SEO
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check text-green-400"></i> Core Web Vitals
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check text-green-400"></i> Audit technique
+                            </li>
+                        </ul>
+                        
+                        <div class="mt-6 pt-6 border-t border-gray-700">
+                            <div class="flex items-center justify-between">
+                                <span class="text-2xl font-bold text-white">À partir de</span>
+                                <span class="text-3xl font-bold text-yellow-400">100 000€</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Service 5: Optimisation -->
+                        <button onclick="openWhatsApp('Optimisation', '250€')" 
+                        class="mt-6 w-full py-3 bg-white/10 rounded-lg font-semibold hover:bg-white/20 transition-colors flex items-center justify-center gap-2 group-hover:bg-white/30">
+                        <i class="fab fa-whatsapp text-green-500 mr-1"></i>
+                        Demander un devis
+                        <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Service 6: Maintenance -->
+                <div class="service-card group relative glass-card p-8 rounded-2xl cursor-pointer overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-r from-indigo-600 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <div class="relative z-10">
+                        <div class="w-20 h-20 mb-6 bg-gradient-to-r from-indigo-500 to-blue-500 rounded-2xl flex items-center justify-center transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                            <i class="fas fa-wrench text-3xl text-white"></i>
+                        </div>
+                        
+                        <h3 class="text-2xl font-bold mb-4 group-hover:text-white transition-colors">Maintenance</h3>
+                        <p class="text-gray-400 group-hover:text-gray-200 transition-colors mb-4">
+                            Support technique, mises à jour de sécurité, sauvegardes et assistance continue pour votre site.
+                        </p>
+                        
+                        <ul class="space-y-2 text-sm text-gray-400 group-hover:text-gray-200 transition-colors">
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check text-green-400"></i> Mises à jour sécurité
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check text-green-400"></i> Sauvegardes
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check text-green-400"></i> Support technique
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check text-green-400"></i> Monitoring 24/7
+                            </li>
+                        </ul>
+                        
+                        <div class="mt-6 pt-6 border-t border-gray-700">
+                            <div class="flex items-center justify-between">
+                                <span class="text-2xl font-bold text-white">À partir de</span>
+                                <span class="text-3xl font-bold text-indigo-400">20 000/mois</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Service 6: Maintenance -->
+                        <button onclick="openWhatsApp('Maintenance', '150€/mois')" 
+                        class="mt-6 w-full py-3 bg-white/10 rounded-lg font-semibold hover:bg-white/20 transition-colors flex items-center justify-center gap-2 group-hover:bg-white/30">
+                        <i class="fab fa-whatsapp text-green-500 mr-1"></i>
+                        Demander un devis
+                        <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section FAQ -->
+            <div class="mt-20">
+                <h2 class="text-3xl font-bold mb-12 text-center">
+                    <span data-language-fr="Questions" data-language-en="Frequently asked">Questions</span> <span class="bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent" data-language-fr="fréquentes" data-language-en="questions">fréquentes</span>
+                </h2>
+                
+                <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                    <div class="glass-card p-6 rounded-xl">
+                        <h3 class="text-xl font-bold mb-3 flex items-center gap-2">
+                            <i class="fas fa-clock text-blue-500"></i>
+                            Combien de temps pour un site ?
+                        </h3>
+                        <p class="text-gray-400">Un site vitrine standard prend 1-2 semaines. Un e-commerce 4-6 semaines selon la complexité.</p>
+                    </div>
+                    
+                    <div class="glass-card p-6 rounded-xl">
+                        <h3 class="text-xl font-bold mb-3 flex items-center gap-2">
+                            <i class="fas fa-credit-card text-purple-500"></i>
+                            Quels modes de paiement ?
+                        </h3>
+                        <p class="text-gray-400">Paiement en plusieurs fois possible. Nous acceptons virement, carte bancaire et mobile money.</p>
+                    </div>
+                    
+                    <div class="glass-card p-6 rounded-xl">
+                        <h3 class="text-xl font-bold mb-3 flex items-center gap-2">
+                            <i class="fas fa-rocket text-pink-500"></i>
+                            Maintenance incluse ?
+                        </h3>
+                        <p class="text-gray-400">3 mois de maintenance offerts pour tout nouveau projet. Ensuite, forfaits mensuels disponibles.</p>
+                    </div>
+                    
+                    <div class="glass-card p-6 rounded-xl">
+                        <h3 class="text-xl font-bold mb-3 flex items-center gap-2">
+                            <i class="fas fa-code text-green-500"></i>
+                            Technologies utilisées ?
+                        </h3>
+                        <p class="text-gray-400">Je choisis les technologies adaptées à vos besoins : WordPress, Laravel, React, Vue.js, etc.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Call to Action -->
+            <div class="mt-20 text-center">
+                <div class="glass-card p-12 rounded-3xl max-w-4xl mx-auto">
+                    <h2 class="text-3xl font-bold mb-4">Prêt à concrétiser votre projet ?</h2>
+                    <p class="text-gray-400 mb-8">Discutons de vos besoins et trouvons ensemble la meilleure solution.</p>
+                    <a href="contact.html" class="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full text-lg font-semibold hover:scale-105 transition-transform duration-300">
+                        <i class="fas fa-calendar-alt"></i>
+                        Planifier un appel gratuit
+                    </a>
+                    <p class="text-sm text-gray-500 mt-4">Sans engagement, réponse sous 24h</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="relative z-10 bg-gray-800/50 backdrop-blur-sm border-t border-gray-700">
+        <div class="container mx-auto px-6 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400">&copy; 2026 Ababacar Souleymane Sane. Tous droits réservés.</p>
+            <a href="privacy.html" class="text-sm text-gray-400 hover:text-white transition-colors">Politique de confidentialité</a>
+        </div>
+    </footer>
+
+    <!-- Toast -->
+    <div id="toast" class="fixed bottom-4 right-4 bg-gray-800 text-white px-6 py-3 rounded-lg shadow-lg transform translate-y-full transition-transform duration-300 z-50"></div>
+
+    <script src="language.js?v=4"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Numéro WhatsApp (sans le +)
+        const WHATSAPP_NUMBER = '221776868625';
+        
+        // Fonction pour ouvrir WhatsApp avec le service sélectionné
+        function openWhatsApp(service, prix) {
+            const isEnglish = document.documentElement.lang === 'en';
+            const localizedService = window.portfolioTranslate(service);
+            const message = isEnglish
+                ? `*Quote request - ${localizedService}*\n\nHello Ababacar,\n\nI am interested in your ${localizedService} service (starting at ${prix}).\n\nCould you share more information about the timeline and process?\n\nThank you in advance for your reply.`
+                : `*Demande de devis - ${service}*\n\nBonjour Ababacar,\n\nJe suis intéressé par votre service de ${service} (à partir de ${prix}).\n\nPourriez-vous me donner plus d'informations sur les délais et les modalités ?\n\nMerci d'avance pour votre retour.`;
+            
+            const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+            
+            // Afficher une notification (optionnel)
+            showNotification(isEnglish ? `Redirecting to WhatsApp for ${localizedService}` : `Redirection vers WhatsApp pour ${service}`);
+        }
+        
+        // Fonction de notification (optionnelle)
+        function showNotification(message) {
+            const toast = document.getElementById('toast');
+            if (toast) {
+                toast.textContent = message;
+                toast.classList.remove('translate-y-full');
+                setTimeout(() => {
+                    toast.classList.add('translate-y-full');
+                }, 3000);
+            }
+        }
+    </script>
+</body>
+</html>

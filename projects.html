@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projets - Ababacar Souleymane Sane | Portfolio</title>
+    <meta name="description" content="Découvrez les projets réalisés par Ababacar Souleymane Sane : boulangerie, boutique, restauration et agrotech.">
+    <meta name="keywords" content="projets web, portfolio, sites internet, applications, e-commerce, développement">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://khalifasane.dev/projects">
+    <meta property="og:title" content="Projets de Ababacar Souleymane Sane">
+    <meta property="og:description" content="Portfolio de projets web et applications">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Swiper pour carrousel -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+</head>
+<body class="bg-gray-900 text-white overflow-x-hidden">
+    <!-- Skip link -->
+    <a href="#main-content" class="skip-link">Aller au contenu</a>
+    
+    <!-- Curseur personnalisé -->
+    <div class="custom-cursor"></div>
+    <div class="custom-cursor-follower"></div>
+
+    <!-- Particles Background -->
+    <div id="particles-js" class="fixed inset-0 z-0"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 w-full z-50 transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="flex items-center" aria-label="Accueil">
+                    <img src="images/LOGO.jpeg" alt="A.S.S Logo" class="h-10 w-auto">
+                </a>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link text-gray-300 hover:text-white">Accueil</a>
+                    <a href="about.html" class="nav-link text-gray-300 hover:text-white">À propos</a>
+                    <a href="projects.html" class="nav-link text-white font-semibold" aria-current="page">Projets</a>
+                    <a href="services.html" class="nav-link text-gray-300 hover:text-white">Services</a>
+                    <a href="contact.html" class="nav-link text-gray-300 hover:text-white">Contact</a>
+                    
+                    <div class="language-switcher flex space-x-2 ml-4" aria-label="Choisir la langue">
+                        <button class="lang-btn px-2 py-1 text-sm rounded bg-blue-600" data-lang="fr" aria-pressed="true">FR</button>
+                        <button class="lang-btn px-2 py-1 text-sm rounded bg-gray-700" data-lang="en" aria-pressed="false">EN</button>
+                    </div>
+                </div>
+                <button class="md:hidden text-white focus:outline-none" id="menu-btn">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+            <div class="mobile-menu hidden md:hidden mt-4 pb-4">
+                <a href="index.html" class="block py-2 text-gray-300 hover:text-white">Accueil</a>
+                <a href="about.html" class="block py-2 text-gray-300 hover:text-white">À propos</a>
+                <a href="projects.html" class="block py-2 text-white font-semibold">Projets</a>
+                <a href="services.html" class="block py-2 text-gray-300 hover:text-white">Services</a>
+                <a href="contact.html" class="block py-2 text-gray-300 hover:text-white">Contact</a>
+                <div class="language-switcher flex gap-2 pt-3" aria-label="Choisir la langue">
+                    <button class="lang-btn px-3 py-1 text-sm rounded bg-blue-600" data-lang="fr" aria-pressed="true">FR</button>
+                    <button class="lang-btn px-3 py-1 text-sm rounded bg-gray-700" data-lang="en" aria-pressed="false">EN</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content" class="pt-32 pb-20 relative z-10">
+        <div class="container mx-auto px-6">
+            <!-- En-tête avec filtre -->
+            <div class="text-center mb-12">
+                <h1 class="text-5xl md:text-6xl font-bold mb-4">
+                    Mes <span class="bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">réalisations</span>
+                </h1>
+                <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto mb-6"></div>
+                <p class="text-gray-400 max-w-2xl mx-auto">
+                    Des expériences numériques conçues pour des commerces, des restaurants et des producteurs locaux.
+                </p>
+                
+                <!-- Filtres de projets -->
+                <div class="flex flex-wrap justify-center gap-3 mt-8">
+                    <button class="filter-btn active px-6 py-2 bg-blue-600 rounded-full text-sm hover:bg-blue-700 transition-all" data-filter="all" aria-pressed="true">Tous</button>
+                    <button class="filter-btn px-6 py-2 bg-gray-800 rounded-full text-sm hover:bg-blue-700 transition-all" data-filter="web" aria-pressed="false">Sites web</button>
+                    <button class="filter-btn px-6 py-2 bg-gray-800 rounded-full text-sm hover:bg-blue-700 transition-all" data-filter="ecommerce" aria-pressed="false">E-commerce</button>
+                    <button class="filter-btn px-6 py-2 bg-gray-800 rounded-full text-sm hover:bg-blue-700 transition-all" data-filter="app" aria-pressed="false">Applications</button>
+                </div>
+            </div>
+
+            <!-- Grille de projets -->
+            <div class="projects-grid grid md:grid-cols-2 lg:grid-cols-3 gap-8" aria-live="polite">
+                <article class="project-card live-project-card" data-category="web">
+                    <div class="live-project-art live-project-art--bakery" aria-hidden="true"><i class="fas fa-bread-slice"></i><span>SAMA</span></div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between gap-3 mb-3">
+                            <span class="project-type">Boulangerie</span>
+                            <span class="project-live"><span></span> En ligne</span>
+                        </div>
+                        <h2 class="text-xl font-bold mb-2">Sama Boulangerie</h2>
+                        <p class="text-gray-400 text-sm mb-5">Outil de gestion de caisse pour boulangerie.</p>
+                        <a href="https://samaboulangerie.netlify.app/" target="_blank" rel="noopener noreferrer" class="live-project-link" aria-label="Visiter le site Sama Boulangerie (nouvel onglet)">Visiter le site <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                    </div>
+                </article>
+
+                <article class="project-card live-project-card" data-category="ecommerce">
+                    <div class="live-project-art live-project-art--boutique" aria-hidden="true"><i class="fas fa-bag-shopping"></i><span>SAMA</span></div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between gap-3 mb-3">
+                            <span class="project-type">Boutique</span>
+                            <span class="project-live"><span></span> En ligne</span>
+                        </div>
+                        <h2 class="text-xl font-bold mb-2">Sama Boutique</h2>
+                        <p class="text-gray-400 text-sm mb-5">Une vitrine e-commerce dédiée à la vente en ligne.</p>
+                        <a href="https://samaboutic.netlify.app/" target="_blank" rel="noopener noreferrer" class="live-project-link" aria-label="Visiter le site Sama Boutique (nouvel onglet)">Visiter le site <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                    </div>
+                </article>
+
+                <article class="project-card live-project-card" data-category="web">
+                    <div class="live-project-art live-project-art--restaurant" aria-hidden="true"><i class="fas fa-utensils"></i><span>SAMA</span></div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between gap-3 mb-3">
+                            <span class="project-type">Restauration</span>
+                            <span class="project-live"><span></span> En ligne</span>
+                        </div>
+                        <h2 class="text-xl font-bold mb-2">Sama Resto</h2>
+                        <p class="text-gray-400 text-sm mb-5">Une expérience numérique pensée pour la restauration.</p>
+                        <a href="https://samaresto.netlify.app/" target="_blank" rel="noopener noreferrer" class="live-project-link" aria-label="Visiter le site Sama Resto (nouvel onglet)">Visiter le site <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                    </div>
+                </article>
+
+                <article class="project-card live-project-card" data-category="web">
+                    <div class="live-project-art live-project-art--snack" aria-hidden="true"><i class="fas fa-burger"></i><span>SAMA</span></div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between gap-3 mb-3">
+                            <span class="project-type">Snack</span>
+                            <span class="project-live"><span></span> En ligne</span>
+                        </div>
+                        <h2 class="text-xl font-bold mb-2">Sama Snack</h2>
+                        <p class="text-gray-400 text-sm mb-5">Un site dédié à l’activité snack et à ses clients.</p>
+                        <a href="https://samasnack.netlify.app/" target="_blank" rel="noopener noreferrer" class="live-project-link" aria-label="Visiter le site Sama Snack (nouvel onglet)">Visiter le site <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                    </div>
+                </article>
+
+                <article class="project-card live-project-card" data-category="web">
+                    <div class="live-project-art live-project-art--patisserie" aria-hidden="true"><i class="fas fa-cake-candles"></i><span>SAMA</span></div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between gap-3 mb-3">
+                            <span class="project-type">Pâtisserie</span>
+                            <span class="project-live"><span></span> En ligne</span>
+                        </div>
+                        <h2 class="text-xl font-bold mb-2">Sama Pâtisserie</h2>
+                        <p class="text-gray-400 text-sm mb-5">Un univers gourmand pour une activité de pâtisserie.</p>
+                        <a href="https://samapatisserie.netlify.app/" target="_blank" rel="noopener noreferrer" class="live-project-link" aria-label="Visiter le site Sama Pâtisserie (nouvel onglet)">Visiter le site <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                    </div>
+                </article>
+
+                <article class="project-card live-project-card" data-category="web">
+                    <div class="live-project-art live-project-art--corntech" aria-hidden="true"><i class="fas fa-seedling"></i><span>CORN TECH</span></div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between gap-3 mb-3">
+                            <span class="project-type">Agrotech · Casamance</span>
+                            <span class="project-live"><span></span> En ligne</span>
+                        </div>
+                        <h2 class="text-xl font-bold mb-2">Corn Tech Bignona</h2>
+                        <p class="text-gray-400 text-sm mb-5">Un projet agrotech autour du maïs frais à Bignona.</p>
+                        <a href="https://corntech.netlify.app/" target="_blank" rel="noopener noreferrer" class="live-project-link" aria-label="Visiter le site Corn Tech Bignona (nouvel onglet)">Visiter le site <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                    </div>
+                </article>
+
+                <!-- Projet 1: GlamTouch - AVEC LIEN RÉEL -->
+                <div class="project-card group relative overflow-hidden rounded-2xl cursor-pointer" data-category="web">
+                    <div class="relative h-72 overflow-hidden">
+                        <img src="images/glam.PNG" alt="GlamTouch - Salon de coiffure" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent"></div>
+                        
+                        <!-- Badges -->
+                        <div class="absolute top-4 left-4 flex gap-2">
+                            <span class="px-3 py-1 bg-blue-600 rounded-full text-xs">Site web</span>
+                            <span class="px-3 py-1 bg-purple-600 rounded-full text-xs">Salon</span>
+                        </div>
+                        
+                        <!-- Badge "Live" -->
+                        <div class="absolute top-4 right-4">
+                            <span class="px-3 py-1 bg-green-600 rounded-full text-xs flex items-center gap-1">
+                                <span class="w-2 h-2 bg-white rounded-full animate-pulse"></span>
+                                En ligne
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <!-- Overlay au survol -->
+                    <div class="project-overlay absolute inset-0 bg-gradient-to-r from-blue-600/95 to-purple-600/95 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500">
+                        <div class="text-center p-6 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                            <h3 class="text-2xl font-bold mb-2">GlamTouch</h3>
+                            <p class="text-gray-200 mb-4">Site vitrine pour salon de coiffure</p>
+                            
+                            <!-- Technologies -->
+                            <div class="flex flex-wrap gap-2 justify-center mb-4">
+                                <span class="px-2 py-1 bg-white/20 rounded text-xs">HTML5</span>
+                                <span class="px-2 py-1 bg-white/20 rounded text-xs">CSS3</span>
+                                <span class="px-2 py-1 bg-white/20 rounded text-xs">JavaScript</span>
+                                <span class="px-2 py-1 bg-white/20 rounded text-xs">Tailwind</span>
+                            </div>
+                            
+                            <!-- Boutons avec LIEN RÉEL -->
+                            <div class="flex gap-3 justify-center">
+                                <a href="https://glamtouch.netlify.app/" target="_blank" rel="noopener noreferrer" 
+                                class="px-4 py-2 bg-white text-gray-900 rounded-full text-sm hover:bg-gray-200 transition-colors flex items-center gap-1 group/btn">
+                                    <i class="fas fa-external-link-alt"></i> 
+                                    Voir le site
+                                    <i class="fas fa-arrow-right text-xs group-hover/btn:translate-x-1 transition-transform"></i>
+                                </a>
+                                <a href="https://github.com/KHALIFABABS/GlamTouch" class="px-4 py-2 border-2 border-white text-white rounded-full text-sm hover:bg-white/10 transition-colors flex items-center gap-1">
+                                    <i class="fab fa-github"></i> Code
+                                </a>
+                            </div>
+                            
+                            <!-- Lien direct copie -->
+                            <p class="text-xs text-gray-300 mt-3">
+                                <i class="fas fa-link mr-1"></i> 
+                                glamtouch.netlify.app
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Informations en bas -->
+                    <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-gray-900 to-transparent">
+                        <div class="flex justify-between items-end">
+                            <div>
+                                <h3 class="text-xl font-bold">GlamTouch</h3>
+                                <p class="text-gray-300 text-sm">Salon de coiffure pour femmes</p>
+                            </div>
+                            <a href="https://glamtouch.netlify.app/" target="_blank" rel="noopener noreferrer" 
+                            class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projet 2: Rassmk - LIVRE SUR L'ART ORATOIRE -->
+                <div class="project-card group relative overflow-hidden rounded-2xl cursor-pointer" data-category="ecommerce">
+                    <div class="relative h-72 overflow-hidden">
+                        <img src="images/rass.PNG" alt="Rassmk - Livre sur l'art oratoire" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent"></div>
+                        
+                        <!-- Badges -->
+                        <div class="absolute top-4 left-4 flex gap-2 flex-wrap">
+                            <span class="px-3 py-1 bg-green-600 rounded-full text-xs">E-commerce</span>
+                            <span class="px-3 py-1 bg-yellow-600 rounded-full text-xs">Livre numérique</span>
+                            <span class="px-3 py-1 bg-blue-600 rounded-full text-xs">Formation</span>
+                        </div>
+                        
+                        <!-- Badge "Live" -->
+                        <div class="absolute top-4 right-4">
+                            <span class="px-3 py-1 bg-green-600 rounded-full text-xs flex items-center gap-1">
+                                <span class="w-2 h-2 bg-white rounded-full animate-pulse"></span>
+                                En ligne
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <!-- Overlay au survol -->
+                    <div class="project-overlay absolute inset-0 bg-gradient-to-r from-green-600/95 to-teal-600/95 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500">
+                        <div class="text-center p-6 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                            <h3 class="text-2xl font-bold mb-2">Rassmk</h3>
+                            <p class="text-gray-200 mb-2">"Comment Parler en Public"</p>
+                            <p class="text-sm text-gray-300 mb-3">Livre pour vaincre la timidité</p>
+                            
+                            <!-- Détails du produit -->
+                            <div class="bg-white/10 rounded-lg p-3 mb-4">
+                                <div class="flex justify-center gap-4 text-sm">
+                                    <span><i class="fas fa-file-pdf mr-1"></i> 127 pages</span>
+                                    <span><i class="fas fa-bolt mr-1"></i> Accès immédiat</span>
+                                </div>
+                                <div class="text-xl font-bold text-white mt-2">
+                                    9 000 FCFA
+                                </div>
+                            </div>
+                            
+                            <!-- Technologies -->
+                            <div class="flex flex-wrap gap-2 justify-center mb-4">
+                                <span class="px-2 py-1 bg-white/20 rounded text-xs">HTML5</span>
+                                <span class="px-2 py-1 bg-white/20 rounded text-xs">CSS3</span>
+                                <span class="px-2 py-1 bg-white/20 rounded text-xs">JavaScript</span>
+                                <span class="px-2 py-1 bg-white/20 rounded text-xs">Paiement mobile</span>
+                            </div>
+                            
+                            <!-- Boutons avec LIEN RÉEL -->
+                            <div class="flex gap-3 justify-center">
+                                <a href="https://rassnk.com/" target="_blank" rel="noopener noreferrer" 
+                                class="px-4 py-2 bg-white text-gray-900 rounded-full text-sm hover:bg-gray-200 transition-colors flex items-center gap-1 group/btn">
+                                    <i class="fas fa-shopping-cart"></i> 
+                                    Voir la boutique
+                                    <i class="fas fa-arrow-right text-xs group-hover/btn:translate-x-1 transition-transform"></i>
+                                </a>
+                                <a href="#" class="px-4 py-2 border-2 border-white text-white rounded-full text-sm hover:bg-white/10 transition-colors flex items-center gap-1">
+                                    <i class="fas fa-info-circle"></i> Détails
+                                </a>
+                            </div>
+                            
+                            <!-- Lien direct -->
+                            <p class="text-xs text-gray-300 mt-3">
+                                <i class="fas fa-link mr-1"></i> 
+                                rassnk.com
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Informations en bas -->
+                    <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-gray-900 to-transparent">
+                        <div class="flex justify-between items-end">
+                            <div>
+                                <h3 class="text-xl font-bold">Rassmk</h3>
+                                <p class="text-gray-300 text-sm">Livre "Comment Parler en Public"</p>
+                                <p class="text-xs text-yellow-400 mt-1">⭐ 4.8/5 · 120+ exemplaires vendus</p>
+                            </div>
+                            <a href="https://rassnk.com/" target="_blank" rel="noopener noreferrer" 
+                            class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projet 3: AlytsShop - E-commerce avec Java/Thymeleaf -->
+                <div class="project-card group relative overflow-hidden rounded-2xl cursor-pointer" data-category="ecommerce">
+                    <div class="relative h-72 overflow-hidden">
+                        <img src="images/project3.jpg" alt="AlytsShop - E-commerce électronique" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent"></div>
+                        
+                        <!-- Badges -->
+                        <div class="absolute top-4 left-4 flex gap-2 flex-wrap">
+                            <span class="px-3 py-1 bg-green-600 rounded-full text-xs">E-commerce</span>
+                            <span class="px-3 py-1 bg-blue-600 rounded-full text-xs">Électronique</span>
+                            <span class="px-3 py-1 bg-purple-600 rounded-full text-xs">Java</span>
+                            <span class="px-3 py-1 bg-orange-600 rounded-full text-xs">Thymeleaf</span>
+                        </div>
+                        
+                        <!-- Badge "Live" -->
+                        <div class="absolute top-4 right-4">
+                            <span class="px-3 py-1 bg-green-600 rounded-full text-xs flex items-center gap-1">
+                                <span class="w-2 h-2 bg-white rounded-full animate-pulse"></span>
+                                En ligne
+                            </span>
+                        </div>
+                        
+                        <!-- Badge IntelliJ IDEA -->
+                        <div class="absolute bottom-20 right-4">
+                            <span class="px-2 py-1 bg-gray-800/80 rounded-full text-xs flex items-center gap-1 backdrop-blur-sm">
+                                <i class="fas fa-code text-yellow-500"></i>
+                                IntelliJ IDEA
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <!-- Overlay au survol -->
+                    <div class="project-overlay absolute inset-0 bg-gradient-to-r from-purple-600/95 to-pink-600/95 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500">
+                        <div class="text-center p-6 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                            <h3 class="text-2xl font-bold mb-2">AlytsShop</h3>
+                            <p class="text-gray-200 mb-2">E-commerce d'électronique</p>
+                            <p class="text-sm text-gray-300 mb-3">Développé avec Java Spring Boot & Thymeleaf</p>
+                            
+                            <!-- Technologies utilisées -->
+                            <div class="flex flex-wrap gap-2 justify-center mb-4">
+                                <span class="px-2 py-1 bg-white/20 rounded text-xs flex items-center gap-1">
+                                    <i class="fab fa-java"></i> Java 17
+                                </span>
+                                <span class="px-2 py-1 bg-white/20 rounded text-xs">Spring Boot</span>
+                                <span class="px-2 py-1 bg-white/20 rounded text-xs">Thymeleaf</span>
+                                <span class="px-2 py-1 bg-white/20 rounded text-xs">MySQL</span>
+                                <span class="px-2 py-1 bg-white/20 rounded text-xs">Bootstrap</span>
+                                <span class="px-2 py-1 bg-white/20 rounded text-xs">Maven</span>
+                            </div>
+                            
+                            <!-- Fonctionnalités -->
+                            <div class="grid grid-cols-2 gap-2 mb-4 text-xs">
+                                <div class="flex items-center gap-1 bg-white/10 p-1 rounded">
+                                    <i class="fas fa-shopping-cart text-green-300"></i>
+                                    <span>Panier d'achat</span>
+                                </div>
+                                <div class="flex items-center gap-1 bg-white/10 p-1 rounded">
+                                    <i class="fas fa-user text-blue-300"></i>
+                                    <span>Authentification</span>
+                                </div>
+                                <div class="flex items-center gap-1 bg-white/10 p-1 rounded">
+                                    <i class="fas fa-search text-yellow-300"></i>
+                                    <span>Recherche</span>
+                                </div>
+                                <div class="flex items-center gap-1 bg-white/10 p-1 rounded">
+                                    <i class="fas fa-credit-card text-green-300"></i>
+                                    <span>Paiement</span>
+                                </div>
+                                <div class="flex items-center gap-1 bg-white/10 p-1 rounded">
+                                    <i class="fas fa-chart-line text-purple-300"></i>
+                                    <span>Dashboard admin</span>
+                                </div>
+                                <div class="flex items-center gap-1 bg-white/10 p-1 rounded">
+                                    <i class="fas fa-database text-orange-300"></i>
+                                    <span>Gestion stocks</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Boutons avec LIEN RÉEL -->
+                            <div class="flex gap-3 justify-center">
+                                <a href="https://alytsshop.com/" target="_blank" rel="noopener noreferrer" 
+                                class="px-4 py-2 bg-white text-gray-900 rounded-full text-sm hover:bg-gray-200 transition-colors flex items-center gap-1 group/btn">
+                                    <i class="fas fa-external-link-alt"></i> 
+                                    Voir la boutique
+                                    <i class="fas fa-arrow-right text-xs group-hover/btn:translate-x-1 transition-transform"></i>
+                                </a>
+                                <a href="#" class="px-4 py-2 border-2 border-white text-white rounded-full text-sm hover:bg-white/10 transition-colors flex items-center gap-1">
+                                    <i class="fab fa-github"></i> Code source
+                                </a>
+                            </div>
+                            
+                            <!-- Environnement de développement -->
+                            <div class="mt-3 flex justify-center gap-3 text-xs text-gray-300">
+                                <span><i class="fas fa-laptop-code text-yellow-400"></i> IntelliJ IDEA</span>
+                                <span><i class="fas fa-leaf text-green-400"></i> Spring Boot</span>
+                                <span><i class="fas fa-file-code text-blue-400"></i> Thymeleaf</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Informations en bas -->
+                    <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-gray-900 to-transparent">
+                        <div class="flex justify-between items-end">
+                            <div>
+                                <h3 class="text-xl font-bold">AlytsShop</h3>
+                                <p class="text-gray-300 text-sm">E-commerce d'électronique</p>
+                                <div class="flex items-center gap-2 mt-1">
+                                    <span class="text-xs bg-yellow-500/20 text-yellow-400 px-2 py-0.5 rounded-full">
+                                        <i class="fab fa-java mr-1"></i>Java Spring Boot
+                                    </span>
+                                    <span class="text-xs bg-blue-500/20 text-blue-400 px-2 py-0.5 rounded-full">
+                                        Thymeleaf
+                                    </span>
+                                </div>
+                            </div>
+                            <a href="https://alytsshop.com/" target="_blank" rel="noopener noreferrer" 
+                            class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <article class="project-card live-project-card" data-category="app">
+                    <div class="live-project-art live-project-art--restaurant" aria-hidden="true"><i class="fas fa-utensils"></i><span>DEMO RESTORA</span></div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between gap-3 mb-3">
+                            <span class="project-type">Restauration</span>
+                            <span class="project-live"><span></span> En ligne</span>
+                        </div>
+                        <h2 class="text-xl font-bold mb-2">DemoRestora</h2>
+                        <p class="text-gray-400 text-sm mb-5">Démonstration de site web pour restaurant.</p>
+                        <a href="https://demorestora.netlify.app/" target="_blank" rel="noopener noreferrer" class="live-project-link" aria-label="Visiter le site DemoRestora (nouvel onglet)">Voir la démo <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Section témoignages clients -->
+            <div class="mt-20">
+                <h2 class="text-3xl font-bold mb-12 text-center">
+                    Ce que disent <span class="bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">mes clients</span>
+                </h2>
+                
+                <!-- Swiper carrousel -->
+                <div class="swiper testimonials-swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="glass-card p-8 rounded-2xl">
+                                <div class="flex items-center gap-4 mb-4">
+                                    <img src="images/client1.jpg" alt="Client" class="w-16 h-16 rounded-full object-cover">
+                                    <div>
+                                        <h3 class="font-bold">Mariama Diallo</h3>
+                                        <p class="text-sm text-gray-400">GlamTouch Salon</p>
+                                    </div>
+                                </div>
+                                <p class="text-gray-300 italic">"Ababacar a créé un site magnifique pour mon salon. Le design est élégant et le site est très facile à gérer. Je recommande vivement !"</p>
+                                <div class="flex text-yellow-500 mt-4">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="swiper-slide">
+                            <div class="glass-card p-8 rounded-2xl">
+                                <div class="flex items-center gap-4 mb-4">
+                                    <img src="images/client2.jpg" alt="Client" class="w-16 h-16 rounded-full object-cover">
+                                    <div>
+                                        <h3 class="font-bold">Omar Sall</h3>
+                                        <p class="text-sm text-gray-400">Rassmk Éditions</p>
+                                    </div>
+                                </div>
+                                <p class="text-gray-300 italic">"Un travail professionnel et soigné. La boutique en ligne fonctionne parfaitement et les ventes ont augmenté de 40%."</p>
+                                <div class="flex text-yellow-500 mt-4">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="swiper-slide">
+                            <div class="glass-card p-8 rounded-2xl">
+                                <div class="flex items-center gap-4 mb-4">
+                                    <img src="images/client3.jpg" alt="Client" class="w-16 h-16 rounded-full object-cover">
+                                    <div>
+                                        <h3 class="font-bold">Aly Touré</h3>
+                                        <p class="text-sm text-gray-400">AlytsShop</p>
+                                    </div>
+                                </div>
+                                <p class="text-gray-300 italic">"Ababacar a compris mes besoins et a livré une application e-commerce performante et intuitive. Un vrai partenaire commercial."</p>
+                                <div class="flex text-yellow-500 mt-4">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Pagination -->
+                    <div class="swiper-pagination mt-8"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer (identique aux autres pages) -->
+    <footer class="relative z-10 bg-gray-800/50 backdrop-blur-sm border-t border-gray-700">
+        <div class="container mx-auto px-6 py-12">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4"> A.S.S<span class="text-blue-500">.</span></h3>
+                    <p class="text-gray-400">Je crée des expériences numériques exceptionnelles avec passion et précision.</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Liens rapides</h4>
+                    <ul class="space-y-2">
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition-colors">À propos</a></li>
+                        <li><a href="projects.html" class="text-gray-400 hover:text-white transition-colors">Projets</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition-colors">Services</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Développement Web</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">E-commerce</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">UI/UX Design</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Optimisation</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Suivez-moi</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="social-icon w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-blue-600 transition-all duration-300 transform hover:scale-110">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="social-icon w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-blue-600 transition-all duration-300 transform hover:scale-110">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="social-icon w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-blue-600 transition-all duration-300 transform hover:scale-110">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-icon w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-blue-600 transition-all duration-300 transform hover:scale-110">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400">&copy; 2024 Ababacar Souleymane Sane. Tous droits réservés.</p>
+                <a href="privacy.html" class="text-sm text-gray-400 hover:text-white transition-colors">Politique de confidentialité</a>
+                <button id="backToTop" class="mt-4 md:mt-0 w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors" aria-label="Retour en haut">
+                    <i class="fas fa-arrow-up"></i>
+                </button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast -->
+    <div id="toast" class="fixed bottom-4 right-4 bg-gray-800 text-white px-6 py-3 rounded-lg shadow-lg transform translate-y-full transition-transform duration-300 z-50"></div>
+
+    <script src="language.js?v=4"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+    
+    <!-- Initialisation Swiper -->
+    <script>
+        new Swiper('.testimonials-swiper', {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            loop: true,
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            breakpoints: {
+                640: {
+                    slidesPerView: 2,
+                },
+                1024: {
+                    slidesPerView: 3,
+                },
+            },
+        });
+    </script>
+</body>
+</html>
